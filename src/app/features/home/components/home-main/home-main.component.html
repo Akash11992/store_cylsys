@@ -1,1 +1,28 @@
-<p>home-main works!</p>
+<!-- <router-outlet></router-outlet> -->
+<section ngxUiLoaderBlurred >
+  <div class="">
+    <div id="header">
+      <app-header></app-header>
+      <app-home-banner></app-home-banner>
+    </div>
+
+    <div class="home-section col-12" id="home" >
+
+      <div class="d-flex">
+      <div id="left-sideber" class="col-md-2">
+      <app-left-sidenav></app-left-sidenav>
+    </div>
+    <div class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+    <div id="footer">
+      <app-home-footer></app-home-footer>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- <ngx-ui-loader></ngx-ui-loader> -->

@@ -4,11 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl:'/api',
+  apiUrl:'https://cylsysadminstore.cylsys.com',
   apiMockUrl:'/api',
   domainUrl:'http://localhost:8000/',
   app_env: 'development',
-  ws_url: 'test-cylsys_store.in',
 };
 
 /*

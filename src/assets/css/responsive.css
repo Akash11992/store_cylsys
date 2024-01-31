@@ -1,0 +1,35 @@
+@media screen and (max-width: 425px) {
+  #banner {
+    height: auto;
+  }
+  #banner h1 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 58px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  #banner p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var(--color-lightwhite);
+  }
+  #banner .carousel-indicators {
+    bottom: 0;
+  }
+  .filter{
+    z-index: 9;
+    position: relative;
+  }
+  .filter .offcanvas {
+    background-color: transparent;
+  }
+  .filter .offcanvas.offcanvas-end {
+    width: auto;
+    border: none;
+  }
+}
