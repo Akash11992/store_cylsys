@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from "../app/shared/shared.module";
-
+import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
@@ -21,7 +21,8 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     BrowserModule,
     AppRoutingModule,
     NgxUiLoaderModule,
-    SharedModule
+    SharedModule,
+    CoreModule
 
   ],
   providers: [],

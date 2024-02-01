@@ -13,8 +13,8 @@ export class SharedService {
     ) { }
 
 
-  getAllApplicationListWithQueryApi() {
-    return this._apiHttpService
-      .get(this._apiEndpointsService.getAllApplicationListWithQueryParamsEndpoint());
-  }
+  // getAllApplicationListWithQueryApi() {
+  //   return this._apiHttpService
+  //     .get(this._apiEndpointsService.getAllApplicationListWithQueryParamsEndpoint());
+  // }
 }

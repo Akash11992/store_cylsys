@@ -8,6 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
+  lstApplicationArr: any = [];
 
   constructor(
     private _homeService: HomeService,
@@ -17,5 +18,22 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
 
+    this._homeService.getAllApplicationListWithQueryApi().subscribe(
+      (res) => {
+
+        console.log(res);
+
+        if (res !== undefined) {
+
+          this.lstApplicationArr = [];
+          this.lstApplicationArr = res;
+          console.log('lstApplicationArr',this.lstApplicationArr);
+
+
+
+        }
+
+      }
+    );
   }
 }

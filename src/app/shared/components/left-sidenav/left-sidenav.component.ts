@@ -15,12 +15,12 @@ export class LeftSidenavComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._sharedService.getAllApplicationListWithQueryApi().subscribe(
-      (res) => {
-        console.log(res);
+    // this._sharedService.getAllApplicationListWithQueryApi().subscribe(
+    //   (res) => {
+    //     console.log(res);
 
-      }
-    );
+    //   }
+    // );
   }
 
 
