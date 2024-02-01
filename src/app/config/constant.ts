@@ -9,7 +9,7 @@ export class Constants {
   public readonly API_IS_DEVELOPMENT_ENV: boolean = environment.production;
 
   // Application
-  public readonly API_ENDPOINT_ALL_APPLICATION: string = 'allApplications/ApplicationList/'
+  public readonly API_ENDPOINT_ALL_APPLICATION: string = 'allApplications/ApplicationList'
 
 
 }

@@ -81,7 +81,4 @@ export class ApiEndpointsService {
   public getAllApplicationListWithQueryParamsEndpoint(): string {
     return this.createUrl(this._constants.API_ENDPOINT_ALL_APPLICATION);
   }
-
-
-
 }

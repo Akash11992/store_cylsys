@@ -8,7 +8,12 @@ import { ApiHttpService } from 'src/app/core/services/api-http.service';
 export class HomeService {
 
   constructor(
-
+    private _apiHttpService: ApiHttpService,
+    private _apiEndpointsService: ApiEndpointsService,
   ) { }
 
+  getAllApplicationListWithQueryApi() {
+    return this._apiHttpService
+      .get(this._apiEndpointsService.getAllApplicationListWithQueryParamsEndpoint());
+  }
 }
