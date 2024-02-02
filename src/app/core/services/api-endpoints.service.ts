@@ -78,7 +78,12 @@ export class ApiEndpointsService {
     }
 
 
-  public getAllApplicationListWithQueryParamsEndpoint(): string {
-    return this.createUrl(this._constants.API_ENDPOINT_ALL_APPLICATION);
+  public getAllApplicationListWithQueryParamsEndpoint( queryParamsObj: any): string {
+    return this.createUrlWithQueryParameters(this._constants.API_ENDPOINT_ALL_APPLICATION,
+      (qs: QueryStringParameters) => {
+        for (let queryParamKey in queryParamsObj) {
+          qs.push(queryParamKey, queryParamsObj[queryParamKey]);
+        }
+      } );
   }
 }
