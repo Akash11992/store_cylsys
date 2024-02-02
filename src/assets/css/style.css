@@ -232,3 +232,8 @@ footer {
   text-align: center;
   padding: 10px 0;
 }
+.txtCount {
+  font-weight: bold;
+  /* color: #242222; */
+  font-size: 14px;
+}

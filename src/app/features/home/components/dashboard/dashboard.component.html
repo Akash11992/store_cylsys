@@ -2,6 +2,67 @@
 <div class="col-md-12">
   <section class="card_section">
     <div class="row">
+      <div class="table-title">
+        <div class="row">
+            <!-- <div class="col-sm-8"><h2>Bill To <b>Party Master</b></h2></div> -->
+            <div class="col-sm-4">
+                <div class="search-box">
+
+                </div>
+            </div>
+              <div class="col-md-6">
+                <div class="datatable_rgt">
+                  <div class="pagination" *ngIf="this.totalitems !==undefined">
+                    <a (click)="previousPage()" *ngIf="this.activeItem !==1" [attr.disabled]="page === 1">
+                      <img
+                      src="../../../../../assets/images/arrow-left-blue.svg" alt="" />
+                      Previous
+                      </a>
+                    <ng-container *ngFor="
+                                        let item of totalitems
+                                          | slice
+                                            : (page - 1) * itemsPerPage
+                                            : page * itemsPerPage;
+                                        let ind = index
+                                      ">
+                      <a [class.active]="item === activeItem" (click)="setActiveItem(item)">
+                        {{ item }}
+                      </a>
+                    </ng-container>
+                    <a (click)="nextPage()" *ngIf="this.totalitems.length !==this.activeItem"
+                      [attr.disabled]="page === numberOfPages">
+                      Next   <img src="../../../../../assets/images/arrow-right-blue.svg"
+                        alt="" />
+                      </a>
+                  </div>
+
+                  <!-- <div class="showData">
+                    <h4 class="m-0">
+                      <a class="dropnav_link" role="button" data-toggle="dropdown">
+                        <span class="group-by">{{ this.paging }} per page</span>
+                        <img src="assets/img/arrow-down-blue.svg" alt="" class="pl-2" />
+                      </a>
+
+                      <div class="dropdown-menu">
+                        <a (click)="fnPaging(list.name)" class="dropdown-item groupdpdn-item" *ngFor="
+                                            let list of groupByPerpage;
+                                            let rowIndex = index
+                                          ">
+                          {{ list.name }}
+                        </a>
+                      </div>
+                    </h4>
+                  </div> -->
+                </div>
+              </div>
+              <div class="col-md-2">
+                <span class="txtCount">Showing
+                  {{this.lstApplicationArr.length}} / {{ this.totalRecords }} Applications</span>
+              </div>
+
+
+        </div>
+    </div>
       <!-- row 1 -->
       <div class="col-md-3 card" *ngFor="let application of lstApplicationArr">
         <div class="card-body">
@@ -123,357 +184,23 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3 card">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
-              <img
-                src="assets/images/rtts.svg"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">RTTS</h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                Real Time Transaction System Credit Confirmation
-                This utility helps AMCs to reconcile credit
-                confirmations on real time basis from banks, this
-                utility runs at a specific interval and checks for
-                any new....
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">Free</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 card">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
-              <img
-                src="assets/images/mrcs.svg"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">MRCS</h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                Medical Reimbursement One of the leading Mutual fund
-                Investment companies in India. It is the
-                seventh-largest Asset management company in India.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">Free</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- row 2 -->
-      <!-- <div class="col-md-3 card">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
-              <img
-                src="assets/images/Sendquickemail.svg"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">Sendquickemail</h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                Stop Overpaying for Email and Get the Best Value in
-                Email Delivery & Email Marketing Tools.
-                Revolutionize your marketing efforts with powerful
-                email automation and stunning templates.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">Free</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 card">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
-              <img
-                src="assets/images/cylsys_HRMS.svg"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">
-                Cylsys<br />
-                Hrms
-              </h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                DTS is a utility that handles all the transaction
-                processing occurring in mutual fund companies .DTS
-                works on daily basis and handles all the transaction
-                related data.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">Paid</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 card">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
-              <img
-                src="assets/images/rtts.svg"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">RTTS</h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                Real Time Transaction System Credit Confirmation
-                This utility helps AMCs to reconcile credit
-                confirmations on real time basis from banks, this
-                utility runs at a specific interval and checks for
-                any new....
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">Free</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 card">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
-              <img
-                src="assets/images/mrcs.svg"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">MRCS</h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                Medical Reimbursement One of the leading Mutual fund
-                Investment companies in India. It is the
-                seventh-largest Asset management company in India.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">Free</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      </div>-->
+      <div class="col-md-12 text-center mt-5 my-5" *ngIf="lstApplicationArr.length == 0">
 
-      <div class="col-md-12 text-center my-5">
+
+            <!-- <div class="col-md-4 col-4"> -->
+              <button class="no_data" [disabled]="lstApplicationArr"><img
+                src="../../../../../assets/images/no_data_found.svg"
+                class=""
+                alt="..."width="150px"
+              /></button>
+            <!-- </div> -->
+      </div>
+
+      <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0">
         <button class="btn btn-outline-dark">See All</button>
       </div>
     </div>
   </section>
+
 </div>

@@ -12,8 +12,8 @@ export class HomeService {
     private _apiEndpointsService: ApiEndpointsService,
   ) { }
 
-  getAllApplicationListWithQueryApi() {
+  getAllApplicationListWithQueryApi(queryParamsObj: Object) {
     return this._apiHttpService
-      .get(this._apiEndpointsService.getAllApplicationListWithQueryParamsEndpoint());
+      .get(this._apiEndpointsService.getAllApplicationListWithQueryParamsEndpoint(queryParamsObj));
   }
 }
