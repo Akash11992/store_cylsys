@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   pageSize = 10;
   currentPage: any;
   totalcount: any;
-  globalPageNumber: number = 1;
+  globalPageNumber: number = 0;
 
   constructor(
     private _homeService: HomeService,
@@ -41,6 +41,8 @@ export class DashboardComponent implements OnInit {
     let sortQueryParams = {};
     sortQueryParams = {
       searchText: this.sortParamKey,
+      sortColumn: this.sortParamKey,
+      sortDirection: this.sortParamKey,
     }
 
     //get pagination
@@ -68,7 +70,7 @@ debugger
 
      if (pageSize != null) {
       this.pageSize = pageSize;
-      this.globalPageNumber = 1;
+      this.globalPageNumber = pageIndex;
     }
     else {
       this.globalPageNumber = pageIndex;//> 1 ? pageIndex - 1 : 1;
@@ -87,11 +89,11 @@ debugger
         if (res !== undefined) {
 
           this.lstApplicationArr = [];
-          this.lstApplicationArr = res;
-          this.totalcount = this.lstApplicationArr.length;
+          this.lstApplicationArr = res['aaData'];
+          this.totalcount = res['iTotalRecords'];
 
 
-          this.totalRecords =  this.lstApplicationArr.length;
+          this.totalRecords =  res['iTotalRecords'];
 
 
           let pag = Math.ceil(this.totalRecords / this.pageSize);
@@ -124,7 +126,7 @@ debugger
     if (this.activeItem > 1)
       this.activeItem--;
 
-      this.globalPageNumber = this.activeItem ;
+      this.globalPageNumber = (this.activeItem* 10 -10);
 
       this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
   }
@@ -132,7 +134,7 @@ debugger
   nextPage() {
 
       this.activeItem++;
-      this.globalPageNumber = this.activeItem ;
+      this.globalPageNumber = (this.activeItem* 10 -10) ;
       this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
   }
 
@@ -141,7 +143,7 @@ debugger
 
     this.activeItem = item;
 
-      this.globalPageNumber = this.activeItem ;
+      this.globalPageNumber = (item * 10 -10) ;
 
     this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
 
