@@ -237,3 +237,28 @@ footer {
   /* color: #242222; */
   font-size: 14px;
 }
+.newd-breadcrumb {
+  /* white / 20% */
+  border-bottom: 1px solid rgba(19, 18, 18, 0.2) !important;
+  padding: 0 0 0 10px;
+  margin: 10px 3px;
+  display: flex;
+  justify-content: space-between;
+}
+.breadcrumb-virtical {
+  width: 37px;
+  /* height: 100vh; */
+  /* left: -29px; */
+  position: relative;
+  margin-right: 5px;
+}
+.breadcrumb-item{
+  font-weight: 600;
+  color: #4e4e4e;
+}
+.breadcrumb-item::after {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: "";
+}
