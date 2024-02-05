@@ -233,6 +233,7 @@ footer {
   padding: 10px 0;
 }
 .txtCount {
+  float: right;
   font-weight: bold;
   /* color: #242222; */
   font-size: 14px;
@@ -254,6 +255,7 @@ footer {
 }
 .breadcrumb-item{
   font-weight: 600;
+  margin-bottom: -15px;
   color: #4e4e4e;
 }
 .breadcrumb-item::after {

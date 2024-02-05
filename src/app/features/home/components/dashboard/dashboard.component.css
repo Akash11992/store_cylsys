@@ -10,7 +10,7 @@
   .datatable_rgt {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
     flex-flow: row wrap;
   }
 
@@ -94,3 +94,6 @@
     border-radius: 5px;
   }
 
+.fontbold{
+  margin-bottom: -15px;
+}

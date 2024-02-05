@@ -8,17 +8,25 @@ import { ApiHttpService } from 'src/app/core/services/api-http.service';
 })
 export class SharedService {
 
+
   constructor(
     private _toastr: ToastrService,
     private _apiHttpService: ApiHttpService,
     private _apiEndpointsService: ApiEndpointsService,
-    ) { }
+    ) {
+      sessionStorage.setItem("isAuthenticated", "true");
+     }
 
 
   // getAllApplicationListWithQueryApi() {
   //   return this._apiHttpService
   //     .get(this._apiEndpointsService.getAllApplicationListWithQueryParamsEndpoint());
   // }
+
+  isLoggedIn() {
+    return  sessionStorage.getItem('isAuthenticated');
+  }
+
   getToastPopup(errorMsg: string, errorModule: string, errorType: string) {
     switch (errorType) {
       case 'error':

@@ -3,16 +3,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './features/home/components/dashboard/dashboard.component';
 
 const routes: Routes = [
+  // { path: 'dashboard', component: DashboardComponent },
 
   {
     path: '',
     loadChildren: () =>
-      import('./features/auth/auth.module').then((m) => m.AuthModule)
+      import('./features/home/home.module').then((m) => m.HomeModule)
   },
   {
     path: '',
     loadChildren: () =>
-      import('./features/home/home.module').then((m) => m.HomeModule)
+      import('./features/auth/auth.module').then((m) => m.AuthModule)
   },
   {
     path: '',
