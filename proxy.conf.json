@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "https://cylsysadminstore.cylsys.com/",
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": { "^/api": "" }
+
+  }
+}

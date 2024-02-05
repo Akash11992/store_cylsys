@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 export class DashboardComponent implements OnInit {
   lstApplicationArr: any = [];
   totalRecords: number = 0;
-  sortParamKey: string = '';
+  sortParamKey: string = "";
   totalitems: any;
   itemsPerPage = 10;
   page = 1;
@@ -66,7 +66,7 @@ export class DashboardComponent implements OnInit {
 
   _fetchDataAndPopulatePagination(pageIndex:any,pageSize:any) {
 
-debugger
+
 
      if (pageSize != null) {
       this.pageSize = pageSize;
@@ -82,7 +82,7 @@ debugger
     let appQueryParams = this._setPaginationConfigNew();
     this._homeService.getAllApplicationListWithQueryApi(appQueryParams).subscribe(
       (res:any) => {
-        debugger
+
 
         console.log(res);
 
@@ -113,7 +113,7 @@ debugger
         if (err.status == 404) {
           this._sharedService.getToastPopup(err.error, 'Application', 'error');
         }else{
-          this._sharedService.getToastPopup(err.error, 'Application', 'error');
+          this._sharedService.getToastPopup(err.statusText, 'Application', 'error');
 
         }
       }
@@ -139,7 +139,7 @@ debugger
   }
 
   setActiveItem(item: any) {
-debugger
+
 
     this.activeItem = item;
 
