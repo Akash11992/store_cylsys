@@ -1,0 +1,288 @@
+<div class="col-12" *ngIf="comingAppById">
+    <div class="row mt-5">
+        <ng-container id="txtBox">
+            <div class="col-md-8">
+                <div class="container-fluid txtBox">
+                    <div>
+                        <h1 class="titleTxt">
+                            {{ApplicationArr.applicationName}}
+                            <span class="fontSize">
+                                <!-- System -->
+                            </span>
+                        </h1>
+
+                    </div>
+                    <div class="titleTxt mt-5">
+                        <h4> ||
+                            <span class="fontDown">
+                                6729 Downloads
+                            </span> || <button class="btnRate">Rate us</button>
+
+                            <ul class="starsRate">
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_white.svg" width="25px" alt="" />
+                                </li>
+                            </ul>
+
+                        </h4>
+
+                    </div>
+                    <div class="titleTxt mt-5">
+                        <h4>
+                            <span class="rateCount">
+                                4.3
+                            </span>
+
+                            <ul class="starsListRate">
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                                </li>
+                                <li>
+                                    <img src="assets/images/Star_white.svg" width="20px" alt="" />
+                                </li>
+                            </ul>
+                            <span class="">
+                                320,40,263
+                            </span>
+                        </h4>
+                        <div class="row progressRate">
+                            <div class="col-md-12 ">
+
+
+                                <div class="performance-list">
+                                    <label for="">5:</label>
+
+                                    <div class="progress" id="rate5">
+                                        <div class="progress-bar" role="progressbar"
+                                            [ngStyle]="{ 'width.%': 80, 'background-color': '#7e7fe3' }"
+                                            aria-valuemin="40" aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="performance-list">
+                                    <label for="">4:</label>
+
+                                </div>
+                                <div class="progress" id="rate4">
+                                    <div class="progress-bar" role="progressbar"
+                                        [ngStyle]="{ 'width.%': 60, 'background-color': '#7e7fe3' }" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                                <div class="performance-list">
+                                    <label for="">3 :</label>
+
+                                </div>
+                                <div class="progress" id="rate3">
+                                    <div class="progress-bar" role="progressbar"
+                                        [ngStyle]="{ 'width.%': 40, 'background-color': '#7e7fe3' }" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                                <div class="performance-list">
+                                    <label for="">2 :</label>
+
+                                </div>
+                                <div class="progress" id="rate2">
+                                    <div class="progress-bar" role="progressbar"
+                                        [ngStyle]="{ 'width.%': 20, 'background-color': '#7e7fe3' }" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                                <div class="performance-list">
+                                    <label for="">1 :</label>
+                                </div>
+                                <div class="progress" id="rate1">
+                                    <div class="progress-bar" role="progressbar"
+                                        [ngStyle]="{ 'width.%': 10, 'background-color': '#7e7fe3' }" aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-body">
+                        <div class="row g-0 align-items-center">
+                            <div class="">
+                                <img *ngIf="ApplicationArr.logoPath" src="{{
+                                    'https://cylsysadminstore.cylsys.com/' + ApplicationArr.logoPath
+                                  }}" class="img-fluid rounded-start w-100"  alt="..." />
+                                <img *ngIf="!ApplicationArr.logoPath" src="../../../../../assets/images/app-logo.png"
+                                  class="img-fluid rounded-start w-100" alt="..." />
+                            </div>
+                            <!-- <div class="col-md-8 col-8">
+              <h5 class="card-title text-center">
+                Digital <br />
+                Transaction.
+              </h5>
+            </div>
+            <div class="col-md-6 col-6">
+              <h6>6729 Downloads</h6>
+            </div>
+            <div class="col-md-6 col-6">
+              <h6>6729 Reviews</h6>
+            </div>
+            <div class="col-md-12">
+              <p class="card-text">
+                DTS is a utility that handles all the transaction
+                processing occurring in mutual fund companies .DTS
+                works on daily basis and handles all the transaction
+                related data.
+              </p>
+            </div> -->
+                        </div>
+                    </div>
+                    <div class="card-footer btnApp">
+                        <div class="row g-0  justify-content-center">
+                            <div class="col-md-4 text-center">
+                                <button class="btn p-0">Download</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="col-md-12">
+            <div class="row">
+
+                <section class="card_section">
+                    <div class="row aboutapp">
+                        <!-- row 1 -->
+                        <div class="col-md-12">
+                            <h5 class="card-title text-start ml-5 pb-4">About Application ></h5>
+                        </div>
+                        <div class="container text-center my-3">
+                            <div class="row mx-auto my-auto justify-content-center">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img">
+                                                        <img src="../../../../../assets/images/AMC1.jpg"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="card-img-overlay">Slide 1</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img">
+                                                        <img src="../../../../../assets/images/AMC1.jpg"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="card-img-overlay">Slide 2</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img">
+                                                        <img src="../../../../../assets/images/AMC1.jpg"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="card-img-overlay">Slide 3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img">
+                                                        <img src="../../../../../assets/images/AMC1.jpg"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="card-img-overlay">Slide 4</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img">
+                                                        <img src="../../../../../assets/images/AMC1.jpg"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="card-img-overlay">Slide 5</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <div class="col-md-3">
+                                                <div class="card">
+                                                    <div class="card-img">
+                                                        <img src="../../../../../assets/images/AMC1.jpg"
+                                                            class="img-fluid">
+                                                    </div>
+                                                    <div class="card-img-overlay">Slide 6</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel"
+                                        role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    </a>
+                                    <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel"
+                                        role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-9">
+                            <p class="bold">
+                                Back office operations are the administrative and non-client-facing functions of a
+                                business. They are essential for maintaining a company's internal operations, ensuring
+                                smooth workflow, compliance, and overall efficiency.F
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="col-md-9 aboutapp">
+                            <p class="bold">
+                                Cylsys is a software development company which has over the past decade created some
+                                amazing products and platforms which are focused on innovation-led business growth for
+                                our clients. Our offerings leverage the latest technologies in cloud computing,
+                                mobility, big data, reach media and social connectivity to provide guaranteed business
+                                outcomes.
+                                We have created some cutting edge applications for some of our clients in the AMC
+                                industry which help them take care of some of their critical functions. As your company
+                                is one of the Top AMC companies, We are sure our applications would be of most
+                                importance to you.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

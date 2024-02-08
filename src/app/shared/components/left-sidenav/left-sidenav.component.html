@@ -14,6 +14,7 @@
                   data-bs-target="#Industries"
                   aria-expanded="false"
                   aria-controls="Industries"
+                  (click)="fetchData('industry')"
                 >
                   <div>
                     <img src="assets/images/industries.svg" alt="" />
@@ -28,20 +29,20 @@
 
             <div class="col-md-12">
               <div class="collapse multi-collapse show" id="Industries">
-                <ul class="p-0 mt-3">
+                <ul class="p-0 mt-3" *ngFor="let Industry of industriesArr">
                   <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="Distribution"
+                        id="{{Industry['text']}}"
                       />
-                      <label class="form-check-label" for="Distribution"
-                        >Distribution</label
+                      <label class="form-check-label" for="{{Industry['text']}}"
+                        >{{Industry.text}}</label
                       >
                     </div>
                   </li>
-                  <li>
+                  <!-- <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
@@ -90,7 +91,7 @@
                         >Health Care and life Science</label
                       >
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -106,6 +107,7 @@
                   data-bs-target="#Platforms"
                   aria-expanded="false"
                   aria-controls="Platforms"
+                  (click)="fetchData('platform')"
                 >
                   <div>
                     <img src="assets/images/platforms.svg" alt="" />
@@ -120,18 +122,18 @@
 
             <div class="col-md-12">
               <div class="collapse multi-collapse show" id="Platforms">
-                <ul class="p-0 mt-3">
+                <ul class="p-0 mt-3" *ngFor="let platform of platformsArr">
                   <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="All"
+                        id="{{platform['text']}}"
                       />
-                      <label class="form-check-label" for="All">All</label>
+                      <label class="form-check-label" for="{{platform['text']}}">{{platform['text']}}</label>
                     </div>
                   </li>
-                  <li>
+                  <!-- <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
@@ -152,7 +154,7 @@
                       />
                       <label class="form-check-label" for="Web">Web</label>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -168,6 +170,7 @@
                   data-bs-target="#Price"
                   aria-expanded="false"
                   aria-controls="Price"
+                  (click)="fetchData('price')"
                 >
                   <div>
                     <img src="assets/images/price.svg" alt="" />
@@ -182,20 +185,20 @@
 
             <div class="col-md-12">
               <div class="collapse multi-collapse show" id="Price">
-                <ul class="p-0 mt-3">
+                <ul class="p-0 mt-3" *ngFor="let price of priceArr">
                   <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="Price_All"
+                        id="{{price['text']}}"
                       />
-                      <label class="form-check-label" for="Price_All"
-                        >All</label
+                      <label class="form-check-label" for="{{price['text']}}"
+                        >{{price['text']}}</label
                       >
                     </div>
                   </li>
-                  <li>
+                  <!-- <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
@@ -218,7 +221,7 @@
                         >Paid
                       </label>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -234,6 +237,7 @@
                   data-bs-target="#App_Type"
                   aria-expanded="false"
                   aria-controls="App_Type"
+                  (click)="fetchData('apptype')"
                 >
                   <div>
                     <img src="assets/images/app_type.svg" alt="" />
@@ -248,20 +252,20 @@
 
             <div class="col-md-12">
               <div class="collapse multi-collapse show" id="App_Type">
-                <ul class="p-0 mt-3">
+                <ul class="p-0 mt-3" *ngFor="let apptype of appTypeArr">
                   <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
                         class="form-check-input"
-                        id="Generative_AI"
+                        id="{{apptype['text']}}"
                       />
-                      <label class="form-check-label" for="Generative_AI"
-                        >Generative AI</label
+                      <label class="form-check-label" for="{{apptype['text']}}"
+                        >{{apptype['text']}}</label
                       >
                     </div>
                   </li>
-                  <li>
+                  <!-- <li>
                     <div class="mb-3 form-check">
                       <input
                         type="checkbox"
@@ -336,7 +340,7 @@
                         >Content
                       </label>
                     </div>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>

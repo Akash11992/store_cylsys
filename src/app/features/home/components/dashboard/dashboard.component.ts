@@ -21,6 +21,8 @@ export class DashboardComponent implements OnInit {
   currentPage: any;
   totalcount: any;
   globalPageNumber: number = 0;
+  showHide: boolean = false;
+  comingAppById : boolean = true;
 
   constructor(
     private _homeService: HomeService,
@@ -147,5 +149,26 @@ export class DashboardComponent implements OnInit {
 
     this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
 
+  }
+  showAll(event:any){
+    if(event=="show"){
+      this.showHide = true ;
+      this.globalPageNumber = 0;
+      this.pageSize = this.totalRecords;
+      this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
+    }else{
+      this.showHide = false ;
+      this.globalPageNumber = 0;
+      this.pageSize = 10;
+      this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
+    }
+  }
+  callAppById(value:any){
+    this.comingAppById = false; 
+    this._router.navigate(['/application'] , {queryParams: {
+      applicationId:value.id
+    }
+
+    });
   }
 }

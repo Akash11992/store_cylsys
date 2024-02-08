@@ -79,7 +79,24 @@ export class ApiEndpointsService {
 
 
   public getAllApplicationListWithQueryParamsEndpoint( queryParamsObj: any): string {
-    return this.createUrlWithQueryParameters(this._constants.API_ENDPOINT_ALL_APPLICATION,
+    return this.createUrlWithQueryParameters(this._constants.API_ENDPOINT_ALL_APPLICATION + '/allApplicationList',
+      (qs: QueryStringParameters) => {
+        for (let queryParamKey in queryParamsObj) {
+          qs.push(queryParamKey, queryParamsObj[queryParamKey]);
+        }
+      } );
+  }
+  
+  public getFilterByTagListWithQueryParamsEndpoint( queryParamsObj: any): string {
+    return this.createUrlWithQueryParameters(this._constants.API_ENDPOINT_ALL_FILTER_DROPDOWN,
+      (qs: QueryStringParameters) => {
+        for (let queryParamKey in queryParamsObj) {
+          qs.push(queryParamKey, queryParamsObj[queryParamKey]);
+        }
+      } );
+  }
+  public getApplicationByIdQueryParamsEndpoint( queryParamsObj: any): string {
+    return this.createUrlWithQueryParameters(this._constants.API_ENDPOINT_ALL_APPLICATION +'/GetApplicationbyid',
       (qs: QueryStringParameters) => {
         for (let queryParamKey in queryParamsObj) {
           qs.push(queryParamKey, queryParamsObj[queryParamKey]);
