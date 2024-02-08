@@ -18,10 +18,10 @@ export class SharedService {
      }
 
 
-  // getAllApplicationListWithQueryApi() {
-  //   return this._apiHttpService
-  //     .get(this._apiEndpointsService.getAllApplicationListWithQueryParamsEndpoint());
-  // }
+  getAllApplicationListWithQueryApi(queryParamsObj: Object) {
+    return this._apiHttpService
+      .get(this._apiEndpointsService.getFilterByTagListWithQueryParamsEndpoint(queryParamsObj));
+  }
 
   isLoggedIn() {
     return  sessionStorage.getItem('isAuthenticated');

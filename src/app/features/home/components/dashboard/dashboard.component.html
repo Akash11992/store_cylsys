@@ -4,16 +4,93 @@
       <div class="table-title">
         <div class="row d-flex pt-3 newd-breadcrumb">
 
-            <h2 class="breadcrumb-item">All Applications</h2>
+          <h2 class="breadcrumb-item">All Applications</h2>
 
 
           <div class="" *ngIf="lstApplicationArr.length > 0">
-            <span class="txtCount"
-              >Showing {{ this.lstApplicationArr.length }} /
-              {{ this.totalRecords }} Applications</span
-            >
+            <span class="txtCount">Showing {{ this.lstApplicationArr.length }} /
+              {{ this.totalRecords }} Applications</span>
           </div>
         </div>
+<!-- 
+        <div class="col-12" *ngIf="comingAppById">
+          <div class="row mt-5">
+            <ng-container id="txtBox">
+              <div class="col-md-8">
+                <div class="container-fluid txtBox">
+                  <div>
+                    <h1 class="titleTxt">
+                      Take Back office Operations<br /> App to you
+                      <span class="fontSize">
+                        System
+                      </span>
+                    </h1>
+
+                  </div>
+                  <div class="titleTxt mt-5">
+                    <h4> ||
+                      <span class="fontDown">
+                        6729 Downloads
+                      </span> || <button class="btnRate">Rate us</button>
+
+                      <ul class="starsRate">
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_white.svg" width="25px" alt="" />
+                        </li>
+                      </ul>
+
+                    </h4>
+
+                  </div>
+                  <div class="titleTxt mt-3">
+                    <h4>
+                      <span class="rateCount">
+                        4.3
+                      </span>
+
+                      <ul class="starsListRate">
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_yellow.svg" width="20px" alt="" />
+                        </li>
+                        <li>
+                          <img src="assets/images/Star_white.svg" width="20px" alt="" />
+                        </li>
+                      </ul>
+                      <span class="">
+                        320,40,263
+                      </span>
+                    </h4>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+
+              </div>
+            </ng-container>
+          </div>
+        </div> -->
 
 
         <div class="row pt-3" *ngIf="lstApplicationArr.length > 0">
@@ -23,41 +100,23 @@
           <div class="col-md-8">
             <div class="datatable_rgt">
               <div class="pagination" *ngIf="this.totalitems !== undefined">
-                <a
-                  (click)="previousPage()"
-                  *ngIf="this.activeItem !== 1"
-                  [attr.disabled]="page === 1"
-                >
-                  <img
-                    src="../../../../../assets/images/arrow-left-blue.svg"
-                    alt=""
-                  />
+                <a (click)="previousPage()" *ngIf="this.activeItem !== 1" [attr.disabled]="page === 1">
+                  <img src="../../../../../assets/images/arrow-left-blue.svg" alt="" />
                   Previous
                 </a>
-                <ng-container
-                  *ngFor="
+                <ng-container *ngFor="
                     let item of totalitems
                       | slice : (page - 1) * itemsPerPage : page * itemsPerPage;
                     let ind = index
-                  "
-                >
-                  <a
-                    [class.active]="item === activeItem"
-                    (click)="setActiveItem(item)"
-                  >
+                  ">
+                  <a [class.active]="item === activeItem" (click)="setActiveItem(item)">
                     {{ item }}
                   </a>
                 </ng-container>
-                <a
-                  (click)="nextPage()"
-                  *ngIf="this.totalitems.length !== this.activeItem"
-                  [attr.disabled]="page === numberOfPages"
-                >
+                <a (click)="nextPage()" *ngIf="this.totalitems.length !== this.activeItem"
+                  [attr.disabled]="page === numberOfPages">
                   Next
-                  <img
-                    src="../../../../../assets/images/arrow-right-blue.svg"
-                    alt=""
-                  />
+                  <img src="../../../../../assets/images/arrow-right-blue.svg" alt="" />
                 </a>
               </div>
 
@@ -87,20 +146,11 @@
         <div class="card-body">
           <div class="row g-0 align-items-center">
             <div class="col-md-4 col-4">
-              <img
-                *ngIf="application.logoPath"
-                src="{{
+              <img *ngIf="application.logoPath" src="{{
                   'https://cylsysadminstore.cylsys.com/' + application.logoPath
-                }}"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
-              <img
-                *ngIf="!application.logoPath"
-                src="../../../../../assets/images/app-logo.png"
-                class="img-fluid rounded-start"
-                alt="..."
-              />
+                }}" class="img-fluid rounded-start" alt="..." />
+              <img *ngIf="!application.logoPath" src="../../../../../assets/images/app-logo.png"
+                class="img-fluid rounded-start" alt="..." />
             </div>
             <div class="col-md-8 col-8">
               <h5 class="card-title text-center">
@@ -143,7 +193,7 @@
               <h6 class="text-center">{{ application.price_type }}</h6>
             </div>
             <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
+              <button class="btn p-0" (click)="callAppById(application)">View More</button>
             </div>
           </div>
         </div>
@@ -208,27 +258,17 @@
           </div>
         </div>
       </div>-->
-      <div
-        class="col-md-12 text-center mt-5 my-5"
-        *ngIf="lstApplicationArr.length == 0"
-      >
+      <div class="col-md-12 text-center mt-5 my-5" *ngIf="lstApplicationArr.length == 0">
         <!-- <div class="col-md-4 col-4"> -->
         <button class="no_data" [disabled]="lstApplicationArr">
-          <img
-            src="../../../../../assets/images/no_data_found.svg"
-            class=""
-            alt="..."
-            width="150px"
-          />
+          <img src="../../../../../assets/images/no_data_found.svg" class="" alt="..." width="150px" />
         </button>
         <!-- </div> -->
       </div>
 
-      <div
-        class="col-md-12 text-center my-5"
-        *ngIf="lstApplicationArr.length !== 0"
-      >
-        <button class="btn btn-outline-dark">See All</button>
+      <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0">
+        <button class="btn btn-outline-dark" (click)="showAll('show')" *ngIf="!showHide">See All</button>
+        <button class="btn btn-outline-dark" (click)="showAll('close')" *ngIf="showHide">Close</button>
       </div>
     </div>
   </section>

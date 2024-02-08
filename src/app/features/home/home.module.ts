@@ -4,6 +4,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeMainComponent } from './components/home-main/home-main.component';
 import { SharedModule } from "../../shared/shared.module";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 
 
 
@@ -11,6 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     declarations: [
         HomeMainComponent,
         DashboardComponent,
+        ApplicationDetailsComponent,
 
 
     ],

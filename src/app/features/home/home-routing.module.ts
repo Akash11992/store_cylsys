@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeMainComponent } from './components/home-main/home-main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 
 const routes: Routes = [
  {
@@ -13,6 +14,7 @@ const routes: Routes = [
    children:[
 
    { path: 'dashboard', component: DashboardComponent },
+   {path:'application',component:ApplicationDetailsComponent},
    { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
  ]
  }

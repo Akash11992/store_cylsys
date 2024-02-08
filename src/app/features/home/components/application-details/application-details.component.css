@@ -1,0 +1,109 @@
+
+.txtBox {
+    margin: 0 0 0 20px;
+    border-left: 1px solid #4e4e4e;
+    border-right: 1px solid #4e4e4e;
+  }
+  .titleTxt{
+    text-align: justify;
+    color: #475260;
+      margin-left: 120px;
+  }
+  .fontSize {
+    text-align: center;
+    font-weight: 700;
+    font-size: -webkit-xxx-large;
+    color: #7e7fe3;
+  }
+  .fontDown{
+    font-weight: 600;
+    font-size: x-large;
+    color: #7e7fe3;
+  }
+  .btnRate{
+    border: none;
+    font-weight: 500;
+    color: #4e4e4e;
+  }
+  .starsRate li {
+    margin: 10px;
+    width: 10px;
+  }
+  .starsRate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: -44px 0 0 -25px;
+  }
+  .rateCount{
+    text-align: center;
+    font-weight: 700;
+    font-size: 95px;
+  }
+  .starsListRate {
+    display: flex;
+    list-style: none;
+    margin: 0 0 0 -35px;
+  }
+  .progressRate{
+    width: 50%;
+    height: 50%;
+    margin: -200px 0 0 150px;
+
+  }
+  .progress {
+    --bs-progress-height: 0.5rem;
+
+  }
+  .btnApp{
+    background-color: #7e7fe3;
+    color: #fff;
+  }
+  .btn{
+    color: #fff;
+    font-size: larger;
+    font-weight: 500;
+  }
+  .aboutapp{
+    margin-top: 50px;
+    padding-left: 45px;
+  }
+
+  .bold{
+    font-size: larger;
+  }
+  
+  @media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(25%);
+    }
+
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+    transform: translateX(0);
+}
