@@ -1,5 +1,6 @@
 
 .txtBox {
+    height: 60vh;
     margin: 0 0 0 20px;
     border-left: 1px solid #4e4e4e;
     border-right: 1px solid #4e4e4e;
@@ -57,8 +58,13 @@
 
   }
   .btnApp{
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
     background-color: #7e7fe3;
     color: #fff;
+    margin-top: 110px;
   }
   .btn{
     color: #fff;
@@ -107,3 +113,23 @@
 .carousel-inner .carousel-item-start { 
     transform: translateX(0);
 }
+#appbanner{
+  /* background-image: url(../../../../../assets/images/banner.svg); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 25vh;
+  color: var(--color-white);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  

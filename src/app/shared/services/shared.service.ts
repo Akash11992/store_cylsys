@@ -20,7 +20,7 @@ export class SharedService {
 
   getAllApplicationListWithQueryApi(queryParamsObj: Object) {
     return this._apiHttpService
-      .get(this._apiEndpointsService.getFilterByTagListWithQueryParamsEndpoint(queryParamsObj));
+      .get(this._apiEndpointsService.getFilterByTagListWithQueryParamsEndpoint(queryParamsObj)).toPromise();
   }
 
   isLoggedIn() {

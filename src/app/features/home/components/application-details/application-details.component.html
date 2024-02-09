@@ -3,7 +3,7 @@
         <ng-container id="txtBox">
             <div class="col-md-8">
                 <div class="container-fluid txtBox">
-                    <div>
+                    <div *ngIf="ApplicationArr.applicationName!==undefined && ApplicationArr.applicationName!==null">
                         <h1 class="titleTxt">
                             {{ApplicationArr.applicationName}}
                             <span class="fontSize">
@@ -12,7 +12,7 @@
                         </h1>
 
                     </div>
-                    <div class="titleTxt mt-5">
+                    <div class="titleTxt mt-5" >
                         <h4> ||
                             <span class="fontDown">
                                 6729 Downloads
@@ -37,7 +37,6 @@
                             </ul>
 
                         </h4>
-
                     </div>
                     <div class="titleTxt mt-5">
                         <h4>
@@ -133,26 +132,6 @@
                                 <img *ngIf="!ApplicationArr.logoPath" src="../../../../../assets/images/app-logo.png"
                                   class="img-fluid rounded-start w-100" alt="..." />
                             </div>
-                            <!-- <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">
-                Digital <br />
-                Transaction.
-              </h5>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                DTS is a utility that handles all the transaction
-                processing occurring in mutual fund companies .DTS
-                works on daily basis and handles all the transaction
-                related data.
-              </p>
-            </div> -->
                         </div>
                     </div>
                     <div class="card-footer btnApp">
@@ -172,21 +151,149 @@
                 <section class="card_section">
                     <div class="row aboutapp">
                         <!-- row 1 -->
-                        <div class="col-md-12">
+                        <div class="col-md-12 mb-5">
                             <h5 class="card-title text-start ml-5 pb-4">About Application ></h5>
                         </div>
-                        <div class="container text-center my-3">
+                        <div id="appbanner">
+                            <div
+                              id="carouselExample"
+                              class="carousel slide"
+                              style="height: 25vh"
+                            >
+                              <!-- <div class="carousel-indicators">
+                                <button
+                                  type="button"
+                                  data-bs-target="#carouselExample"
+                                  data-bs-slide-to="0"
+                                  class="active"
+                                  aria-current="true"
+                                  aria-label="Slide 1"
+                                ></button>
+                                <button
+                                  type="button"
+                                  data-bs-target="#carouselExample"
+                                  data-bs-slide-to="1"
+                                  aria-label="Slide 2"
+                                ></button>
+                                <button
+                                  type="button"
+                                  data-bs-target="#carouselExample"
+                                  data-bs-slide-to="2"
+                                  aria-label="Slide 3"
+                                ></button>
+                              </div> -->
+                              <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                  <div class="container-fluid">
+                                    <div class="row" >
+                                      <div class="col-md-3"*ngFor="let images of ApplicationArr.imagePath">
+                                        <div class="container">
+                                          <div class="row align-items-center">
+                                           <div class=" text-center">
+                                              <img
+                                                src="{{
+                                                    'https://cylsysadminstore.cylsys.com/' + images.path
+                                                  }}"
+                                                alt=""
+                                                class="w-100"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- <div class="carousel-item">
+                                  <div class="container-fluid">
+                                    <div class="row">
+                                      <div class="col-md-4">
+                                        <div class="container">
+                                          <div class="row align-items-center">
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="carousel-item">
+                                  <div class="container-fluid">
+                                    <div class="row">
+                                      <div class="col-md-">
+                                        <div class="container">
+                                          <div class="row align-items-center">
+                                        
+                                           </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> -->
+                              </div>
+                              <button
+                                class="carousel-control-prev"
+                                type="button"
+                                data-bs-target="#carouselExample"
+                                data-bs-slide="prev"
+                              >
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                              </button>
+                              <button
+                                class="carousel-control-next"
+                                type="button"
+                                data-bs-target="#carouselExample"
+                                data-bs-slide="next"
+                              >
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                              </button>
+                            </div>
+                          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <!-- <div class="container text-center my-3">
                             <div class="row mx-auto my-auto justify-content-center">
-                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
-                                    <div class="carousel-inner" role="listbox">
+                                <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel" >
+                                    <div class="carousel-inner" role="listbox" >
                                         <div class="carousel-item active">
                                             <div class="col-md-3">
                                                 <div class="card">
                                                     <div class="card-img">
-                                                        <img src="../../../../../assets/images/AMC1.jpg"
-                                                            class="img-fluid">
+                                                        <img  src="{{
+                                                            'https://cylsysadminstore.cylsys.com/' 
+                                                          }}" class="img-fluid rounded-start"  alt="..." />
                                                     </div>
-                                                    <div class="card-img-overlay">Slide 1</div>
+                                                    <div class="card-img-overlay">Slide 1
+                                               
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -256,32 +363,34 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="col-md-9">
+                        <div class="col-md-9 mt-5">
                             <p class="bold">
-                                Back office operations are the administrative and non-client-facing functions of a
-                                business. They are essential for maintaining a company's internal operations, ensuring
-                                smooth workflow, compliance, and overall efficiency.F
+                               {{ this.ApplicationArr.shortDescription}}
                             </p>
                         </div>
                     </div>
                     <div>
                         <div class="col-md-9 aboutapp">
                             <p class="bold">
-                                Cylsys is a software development company which has over the past decade created some
-                                amazing products and platforms which are focused on innovation-led business growth for
-                                our clients. Our offerings leverage the latest technologies in cloud computing,
-                                mobility, big data, reach media and social connectivity to provide guaranteed business
-                                outcomes.
-                                We have created some cutting edge applications for some of our clients in the AMC
-                                industry which help them take care of some of their critical functions. As your company
-                                is one of the Top AMC companies, We are sure our applications would be of most
-                                importance to you.
+                                {{longDescription}}
+
                             </p>
                         </div>
                     </div>
                 </section>
+
+
+
+
+
+
+
+
+
+
+                
             </div>
         </div>
     </div>

@@ -17,16 +17,25 @@ export class LeftSidenavComponent implements OnInit {
     private _sharedService: SharedService,
 
   ) {
+    debugger
     this.sideFilterMenu = [
-      { name: "Industries" },
-      { name: "Platforms" },
-      { name: "Price" },
-      { name: "App_Type" },
+      { name: "industry" },
+      { name: "platform" },
+      { name: "price" },
+      { name: "apptype" },
     ]
+
+    for (let filter = 0; filter < this.sideFilterMenu.length; filter++) {
+      // const element = array[filter];
+      this.sortParamKey = this.sideFilterMenu[filter].name
+      this.fetchAllfilter();
+    }
+
   }
 
   ngOnInit(): void {
 
+    
   }
 
    fetchData(event: any) {
@@ -50,34 +59,35 @@ export class LeftSidenavComponent implements OnInit {
     };
   }
 
- async fetchAllfilter() {
-    let appQueryParams = this._setPaginationConfigNew();
+  fetchAllfilter() {
+    debugger
 
-    this._sharedService.getAllApplicationListWithQueryApi(appQueryParams).subscribe(
-      (res) => {
-
-
-        // this.industriesArr = res;
-        // console.log(this.industriesArr);
-
-        switch (this.sortParamKey) {
-          case 'industry':
-            this.industriesArr = res;
-            break;
-          case 'platform':
-            this.platformsArr = res;
-            break;
-          case 'price':
-            this.priceArr = res;
-            break;
-          case 'apptype':
-            this.appTypeArr = res;
-            break;
-            
+      let appQueryParams = this._setPaginationConfigNew();
+  
+      this._sharedService.getAllApplicationListWithQueryApi(appQueryParams).then(
+        (res) => {
+  
+     
+          switch (this.sortParamKey) {
+            case 'industry':
+              this.industriesArr = res;
+              break;
+            case 'platform':
+              this.platformsArr = res;
+              break;
+            case 'price':
+              this.priceArr = res;
+              break;
+            case 'apptype':
+              this.appTypeArr = res;
+              break;
+              
+          }
+  
         }
-
-      }
-    );
+      );
+      
+    
   }
 
 }
