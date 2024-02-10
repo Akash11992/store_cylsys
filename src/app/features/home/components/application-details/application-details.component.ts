@@ -9,10 +9,10 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./application-details.component.css']
 })
 export class ApplicationDetailsComponent implements OnInit {
-  comingAppById : boolean = true;
-  ApplicationArr:any = [];
-  ApplicationId : any;
-
+  comingAppById: boolean = true;
+  ApplicationArr: any = [];
+  ApplicationId: any;
+  longDescription: string = '';
   constructor(
     private _homeService: HomeService,
     private _sharedService: SharedService,
@@ -24,14 +24,14 @@ export class ApplicationDetailsComponent implements OnInit {
     debugger
     this._route.queryParams.subscribe(params => {
       console.log(params['applicationId']);
-      
-      if(params !== undefined){
-       this.ApplicationId = params['applicationId']
+
+      if (params !== undefined) {
+        this.ApplicationId = params['applicationId']
       }
-    
+
 
     });
-this.  _fetchDataAndPopulate();
+    this._fetchDataAndPopulate();
 
 
   }
@@ -41,11 +41,11 @@ this.  _fetchDataAndPopulate();
     let sortQueryParams = {};
     sortQueryParams = {
       id: this.ApplicationId,
-     
+
     }
 
- 
-   
+
+
 
     //final query params
     return {
@@ -61,29 +61,51 @@ this.  _fetchDataAndPopulate();
   _fetchDataAndPopulate() {
     let appQueryParams = this._setPaginationConfigNew();
     this._homeService.getApplicationByIdApi(appQueryParams).subscribe(
-      (res:any) => {
+      (res: any) => {
 
 
         console.log(res);
 
         if (res !== undefined) {
-
-          this.ApplicationArr = [];
+          debugger;
           this.ApplicationArr = res[0];
+          let imagePathArray = res[0].imagePath.split(",");
+          
+          // Assign the array of objects back to imagePath property
+          this.ApplicationArr.imagePath = imagePathArray.map((path: any) => ({ path: path.trim() }));;
+
+          // Logging the updated data
+          console.log(this.ApplicationArr.imagePath);
+
+
+          // Create a new DOMParser
+          const parser = new DOMParser();
+
+          // Parse the HTML string
+          const doc = parser.parseFromString(this.ApplicationArr.longDescription, "text/html");
+
+          // Extract the text content of the span element
+
+          if (doc.body.firstChild !== null) {
+            this.longDescription = doc.body.firstChild.textContent || "";
+          }
+          console.log(this.longDescription); 
+
         }
 
+
       },
-      (err)=>{
+      (err) => {
         if (err.status == 404) {
           this._sharedService.getToastPopup(err.error, 'Application', 'error');
-        }else{
+        } else {
           this._sharedService.getToastPopup(err.statusText, 'Application', 'error');
 
         }
       }
     );
 
-    }
+  }
 
 
 
@@ -94,17 +116,5 @@ this.  _fetchDataAndPopulate();
 
 
 
-  
-//   function splitImagePath(obj) {
-//     // Split the imagePath value by comma
-//     let imagePathArray = obj.imagePath.split(",");
-//     // Push the separated paths into a new array
-//     obj.imagePath = imagePathArray;
-// }
 
-// // Call the function for each object in the data array
-// data.forEach(splitImagePath);
-
-// // Logging the updated data
-// console.log(data);
 }
