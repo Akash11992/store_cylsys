@@ -264,3 +264,10 @@ footer {
   color: #6c757d;
   content: "";
 }
+.no_data {
+  text-transform: none;
+  border: none;
+  background-color: transparent;
+  margin-top: 20%;
+
+}

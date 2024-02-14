@@ -14,7 +14,6 @@
                   data-bs-target="#Industries"
                   aria-expanded="false"
                   aria-controls="Industries"
-                  (click)="fetchData('industry')"
                 >
                   <div>
                     <img src="assets/images/industries.svg" alt="" />
@@ -33,12 +32,16 @@
                   <li>
                     <div class="mb-3 form-check">
                       <input
-                        type="checkbox"
-                        class="form-check-input"
-                        id="{{Industry['text']}}"
+                      type="checkbox"
+                      class="form-check-input"
+                      [(ngModel)]="Industry.selected"
+                      [checked]="Industry.selected"
+                      name="industry"
+                      value="{{ Industry.text }}"
+                      (click)="onSelectFilter(Industry, 'industry',$event)"
                       />
                       <label class="form-check-label" for="{{Industry['text']}}"
-                        >{{Industry.text}}</label
+                      >{{Industry.text}}</label
                       >
                     </div>
                   </li>
@@ -107,7 +110,6 @@
                   data-bs-target="#Platforms"
                   aria-expanded="false"
                   aria-controls="Platforms"
-                  (click)="fetchData('platform')"
                 >
                   <div>
                     <img src="assets/images/platforms.svg" alt="" />
@@ -129,6 +131,11 @@
                         type="checkbox"
                         class="form-check-input"
                         id="{{platform['text']}}"
+                        [(ngModel)]="platform.selected"
+                        [checked]="platform.selected"
+                        name="platform"
+                        value="{{ platform.text }}"
+                        (click)="onSelectFilter(platform, 'platform',$event)"
                       />
                       <label class="form-check-label" for="{{platform['text']}}">{{platform['text']}}</label>
                     </div>
@@ -170,7 +177,6 @@
                   data-bs-target="#Price"
                   aria-expanded="false"
                   aria-controls="Price"
-                  (click)="fetchData('price')"
                 >
                   <div>
                     <img src="assets/images/price.svg" alt="" />
@@ -192,6 +198,11 @@
                         type="checkbox"
                         class="form-check-input"
                         id="{{price['text']}}"
+                        [(ngModel)]="price.selected"
+                        [checked]="price.selected"
+                        name="price"
+                        value="{{ price.text }}"
+                        (click)="onSelectFilter(price, 'price',$event)"
                       />
                       <label class="form-check-label" for="{{price['text']}}"
                         >{{price['text']}}</label
@@ -237,7 +248,6 @@
                   data-bs-target="#App_Type"
                   aria-expanded="false"
                   aria-controls="App_Type"
-                  (click)="fetchData('apptype')"
                 >
                   <div>
                     <img src="assets/images/app_type.svg" alt="" />
@@ -259,6 +269,11 @@
                         type="checkbox"
                         class="form-check-input"
                         id="{{apptype['text']}}"
+                        [(ngModel)]="apptype.selected"
+                        [checked]="apptype.selected"
+                        name="apptype"
+                        value="{{ apptype.text }}"
+                        (click)="onSelectFilter(apptype, 'apptype',$event)"
                       />
                       <label class="form-check-label" for="{{apptype['text']}}"
                         >{{apptype['text']}}</label
@@ -495,22 +510,20 @@
                             class="collapse multi-collapse show"
                             id="Industries"
                           >
-                            <ul class="p-0 mt-3">
-                              <li>
-                                <div class="mb-3 form-check">
-                                  <input
-                                    type="checkbox"
-                                    class="form-check-input"
-                                    id="Distribution"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="Distribution"
-                                    >Distribution</label
-                                  >
-                                </div>
-                              </li>
-                              <li>
+                          <ul class="p-0 mt-3" *ngFor="let Industry of industriesArr">
+                            <li>
+                              <div class="mb-3 form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="{{Industry['text']}}"
+                                />
+                                <label class="form-check-label" for="{{Industry['text']}}"
+                                  >{{Industry.text}}</label
+                                >
+                              </div>
+                            </li>
+                              <!-- <li>
                                 <div class="mb-3 form-check">
                                   <input
                                     type="checkbox"
@@ -565,7 +578,7 @@
                                     >Health Care and life Science</label
                                   >
                                 </div>
-                              </li>
+                              </li> -->
                             </ul>
                           </div>
                         </div>
@@ -601,20 +614,18 @@
                             class="collapse multi-collapse show"
                             id="Platforms"
                           >
-                            <ul class="p-0 mt-3">
-                              <li>
-                                <div class="mb-3 form-check">
-                                  <input
-                                    type="checkbox"
-                                    class="form-check-input"
-                                    id="All"
-                                  />
-                                  <label class="form-check-label" for="All"
-                                    >All</label
-                                  >
-                                </div>
-                              </li>
-                              <li>
+                          <ul class="p-0 mt-3" *ngFor="let platform of platformsArr">
+                            <li>
+                              <div class="mb-3 form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="{{platform['text']}}"
+                                />
+                                <label class="form-check-label" for="{{platform['text']}}">{{platform['text']}}</label>
+                              </div>
+                            </li>
+                              <!-- <li>
                                 <div class="mb-3 form-check">
                                   <input
                                     type="checkbox"
@@ -639,7 +650,7 @@
                                     >Web</label
                                   >
                                 </div>
-                              </li>
+                              </li> -->
                             </ul>
                           </div>
                         </div>
@@ -672,22 +683,20 @@
                             class="collapse multi-collapse show"
                             id="Price"
                           >
-                            <ul class="p-0 mt-3">
-                              <li>
-                                <div class="mb-3 form-check">
-                                  <input
-                                    type="checkbox"
-                                    class="form-check-input"
-                                    id="Price_All"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="Price_All"
-                                    >All</label
-                                  >
-                                </div>
-                              </li>
-                              <li>
+                          <ul class="p-0 mt-3" *ngFor="let price of priceArr">
+                            <li>
+                              <div class="mb-3 form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="{{price['text']}}"
+                                />
+                                <label class="form-check-label" for="{{price['text']}}"
+                                  >{{price['text']}}</label
+                                >
+                              </div>
+                            </li>
+                              <!-- <li>
                                 <div class="mb-3 form-check">
                                   <input
                                     type="checkbox"
@@ -710,7 +719,7 @@
                                     >Paid
                                   </label>
                                 </div>
-                              </li>
+                              </li> -->
                             </ul>
                           </div>
                         </div>
@@ -746,22 +755,20 @@
                             class="collapse multi-collapse show"
                             id="App_Type"
                           >
-                            <ul class="p-0 mt-3">
-                              <li>
-                                <div class="mb-3 form-check">
-                                  <input
-                                    type="checkbox"
-                                    class="form-check-input"
-                                    id="Generative_AI"
-                                  />
-                                  <label
-                                    class="form-check-label"
-                                    for="Generative_AI"
-                                    >Generative AI</label
-                                  >
-                                </div>
-                              </li>
-                              <li>
+                          <ul class="p-0 mt-3" *ngFor="let apptype of appTypeArr">
+                            <li>
+                              <div class="mb-3 form-check">
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  id="{{apptype['text']}}"
+                                />
+                                <label class="form-check-label" for="{{apptype['text']}}"
+                                  >{{apptype['text']}}</label
+                                >
+                              </div>
+                            </li>
+                              <!-- <li>
                                 <div class="mb-3 form-check">
                                   <input
                                     type="checkbox"
@@ -844,7 +851,7 @@
                                     >Content
                                   </label>
                                 </div>
-                              </li>
+                              </li> -->
                             </ul>
                           </div>
                         </div>

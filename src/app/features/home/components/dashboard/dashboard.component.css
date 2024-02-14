@@ -146,3 +146,10 @@
   list-style: none;
   margin: 0 0 0 -35px;
 }
+.fetch_data{
+  display: flex;
+  justify-content: center;
+}
+.table>tbody>td{
+  border-style : none;
+}
