@@ -5,10 +5,14 @@
     /></a>
     <form class="d-flex col justify-content-end" role="search">
       <input
+      #deviceNameTriggerInput
         class="form-control me-2 w-auto"
         type="search"
         placeholder="Search"
         aria-label="Search"
+        (input)="
+        filterItem(deviceNameTriggerInput.value)
+      "
       />
 
       <!-- <button class="btn">

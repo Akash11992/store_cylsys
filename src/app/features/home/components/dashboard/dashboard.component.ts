@@ -23,7 +23,9 @@ export class DashboardComponent implements OnInit {
   globalPageNumber: number = 0;
   showHide: boolean = false;
   comingAppById : boolean = true;
-
+  filterParams: object = {};
+  searchParams: string ='';
+isLoading :boolean = true;
   constructor(
     private _homeService: HomeService,
     private _sharedService: SharedService,
@@ -33,16 +35,50 @@ export class DashboardComponent implements OnInit {
 
     ngOnInit(): void {
 
+      // if (this._homeService.filterSharingSubject.value !== "") {
+        this._homeService.filterSharingSubject.subscribe(
+
+           (borrower:string) => {
+            if (borrower !== undefined && borrower !== null) {
+              borrower !==''
+                ? (this.searchParams = borrower)
+                : (this.searchParams = '');
+         
+       this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
+            }
+       
+          }
+        );
+      // }
+
+      
+
+        debugger
+        this._sharedService.filterSharingSubject.subscribe(
+
+          (borrower) => {
+           if (borrower["data"] !== undefined && borrower["data"] !== null) {
+             borrower["data"] !==''
+               ? (this.filterParams = borrower["data"])
+               : (this.filterParams = {});
+        
       this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
+           }
+      
+         }
+       );
+  
+this.isLoading = true;
+      // this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
 
   }
 
   private _setPaginationConfigNew(): object {
-    // let filterQueryParams = this.filterParams;
+    let filterQueryParams = this.filterParams;
 
     let sortQueryParams = {};
     sortQueryParams = {
-      searchText: this.sortParamKey,
+      searchText: this.searchParams,
       sortColumn: this.sortParamKey,
       sortDirection: this.sortParamKey,
     }
@@ -59,7 +95,7 @@ export class DashboardComponent implements OnInit {
     //final query params
     return {
 
-      // ...filterQueryParams,
+      ...filterQueryParams,
       ...sortQueryParams,
       ...paginationQueryParams,
       ...pageSizeQueryParams
@@ -96,6 +132,8 @@ export class DashboardComponent implements OnInit {
 
 
           this.totalRecords =  res['iTotalRecords'];
+          
+          this.isLoading = false;
 
 
           let pag = Math.ceil(this.totalRecords / this.pageSize);
@@ -112,6 +150,8 @@ export class DashboardComponent implements OnInit {
 
       },
       (err)=>{
+        this.isLoading = false;
+
         if (err.status == 404) {
           this._sharedService.getToastPopup(err.error, 'Application', 'error');
         }else{
@@ -166,7 +206,7 @@ export class DashboardComponent implements OnInit {
   callAppById(value:any){
     this.comingAppById = false; 
     this._router.navigate(['/application'] , {queryParams: {
-      applicationId:value.id
+      applicationGUID:value.applicationGUID
     }
 
     });

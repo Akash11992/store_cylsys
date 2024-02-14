@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject, Observable, ObservableLike, Subject } from 'rxjs';
 import { ApiEndpointsService } from 'src/app/core/services/api-endpoints.service';
 import { ApiHttpService } from 'src/app/core/services/api-http.service';
 
@@ -7,13 +8,15 @@ import { ApiHttpService } from 'src/app/core/services/api-http.service';
   providedIn: 'root'
 })
 export class SharedService {
-
-
+filterSharingSubject: BehaviorSubject<any>;
+currentFilter:Observable<any>
   constructor(
     private _toastr: ToastrService,
     private _apiHttpService: ApiHttpService,
     private _apiEndpointsService: ApiEndpointsService,
     ) {
+      this.filterSharingSubject = new BehaviorSubject<any>({});
+      this.currentFilter = this.filterSharingSubject.asObservable();
       sessionStorage.setItem("isAuthenticated", "true");
      }
 
