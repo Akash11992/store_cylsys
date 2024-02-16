@@ -271,3 +271,17 @@ footer {
   margin-top: 20%;
 
 }
+
+.toast-container {
+  --bs-toast-zindex: 1090;
+  position: fixed !important;
+  z-index: var(--bs-toast-zindex);
+  width: max-content;
+  max-width: 100%;
+  pointer-events: none;
+}
+.toast-container {
+  pointer-events: none;
+  position: fixed !important;
+  z-index: 123456789 !important;
+}

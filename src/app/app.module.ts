@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HashLocationStrategy } from '@angular/common';
+import { LocationStrategy } from '@angular/common';
 
 // import { HeaderComponent } from './shared/components/header/header.component';
 // import { LeftSidenavComponent } from './shared/components/left-sidenav/left-sidenav.component';
@@ -29,11 +30,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CoreModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-
-
+    
+    
+    
+  ],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
 
   ],
-  providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

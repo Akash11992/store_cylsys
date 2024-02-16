@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl:location.origin,
-  apiMockUrl:location.origin,
-  domainUrl:location.origin,
+  apiUrl:'https://cylsysadminstore.cylsys.com',
+  apiMockUrl:'/api',
+  domainUrl:'http://localhost:8000/',
   app_env: 'production'
 };

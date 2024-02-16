@@ -70,7 +70,6 @@ isLoading :boolean = true;
   
 this.isLoading = true;
       // this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
-
   }
 
   private _setPaginationConfigNew(): object {
@@ -122,7 +121,7 @@ this.isLoading = true;
       (res:any) => {
 
 
-        console.log(res);
+        // console.log(res);
 
         if (res !== undefined) {
 
@@ -145,7 +144,7 @@ this.isLoading = true;
           this.numberOfPages = Math.ceil(
             this.totalRecords / this.pageSize
           );
-          console.log('lstApplicationArr',this.lstApplicationArr );
+          // console.log('lstApplicationArr',this.lstApplicationArr );
         }
 
       },
@@ -205,10 +204,16 @@ this.isLoading = true;
   }
   callAppById(value:any){
     this.comingAppById = false; 
-    this._router.navigate(['/application'] , {queryParams: {
-      applicationGUID:value.applicationGUID
+    if(value.applicationGUID){
+      this._router.navigate(['/application'] , {queryParams: {
+        applicationGUID:value.applicationGUID
+      }
+    });
+
+    }else{
+      this._sharedService.getToastPopup('Invalid GUID', 'Application', 'error');
+
     }
 
-    });
   }
 }

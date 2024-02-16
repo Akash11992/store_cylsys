@@ -168,41 +168,41 @@ this. applyFilter();
     this.selectedFilterArr.map((selectedFilter: any) => {
       switch (selectedFilter["filterCatType"]) {
         case "industry":
-          if (paramsObj["industries"]) {
-            paramsObj["industries"] = paramsObj["industries"] + "|" + selectedFilter["filterSubCatName"];
+          if (paramsObj["industryDropdown"]) {
+            paramsObj["industryDropdown"] = paramsObj["industryDropdown"] + "|" + selectedFilter["filterSubCatId"];
           } else {
             let industryParams = {
-              industries: selectedFilter["filterSubCatName"],
+              industryDropdown: selectedFilter["filterSubCatId"],
             };
             paramsObj = { ...paramsObj, ...industryParams }
           }
           break;
           case "platform":
-            if (paramsObj["platforms"]) {
-              paramsObj["platforms"] = paramsObj["platforms"] + "|" + selectedFilter["filterSubCatName"];
+            if (paramsObj["platformDropdown"]) {
+              paramsObj["platformDropdown"] = paramsObj["platformDropdown"] + "|" + selectedFilter["filterSubCatId"];
             } else {
               let platformParams = {
-                platforms: selectedFilter["filterSubCatName"],
+                platformDropdown: selectedFilter["filterSubCatId"],
               };
               paramsObj = { ...paramsObj, ...platformParams }
             }
             break;
             case "price":
-              if (paramsObj["prices"]) {
-                paramsObj["prices"] = paramsObj["prices"] + "|" + selectedFilter["filterSubCatName"];
+              if (paramsObj["priceDropdown"]) {
+                paramsObj["priceDropdown"] = paramsObj["priceDropdown"] + "|" + selectedFilter["filterSubCatId"];
               } else {
                 let priceParams = {
-                  prices: selectedFilter["filterSubCatName"],
+                  priceDropdown: selectedFilter["filterSubCatId"],
                 };
                 paramsObj = { ...paramsObj, ...priceParams }
               }
               break;
               case "apptype":
-                if (paramsObj["apptype"]) {
-                  paramsObj["apptype"] = paramsObj["apptype"] + "|" + selectedFilter["filterSubCatName"];
+                if (paramsObj["appTypeDropdown"]) {
+                  paramsObj["appTypeDropdown"] = paramsObj["appTypeDropdown"] + "|" + selectedFilter["filterSubCatId"];
                 } else {
                   let apptypeParams = {
-                    apptype: selectedFilter["filterSubCatName"],
+                    appTypeDropdown: selectedFilter["filterSubCatId"],
                   };
                   paramsObj = { ...paramsObj, ...apptypeParams }
                 }
@@ -211,7 +211,7 @@ this. applyFilter();
     });
     let nextData:any = {};
     nextData["data"] = paramsObj;
-    console.log(nextData["data"]);
+    // console.log(nextData["data"]);
     this._sharedService.filterSharingSubject.next(nextData)
   }
 

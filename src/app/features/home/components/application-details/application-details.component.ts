@@ -34,7 +34,7 @@ export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
   ngOnInit(): void {
     
     this._route.queryParams.subscribe(params => {
-      console.log(params['applicationId']);
+      // console.log(params['applicationId']);
 
       if (params !== undefined) {
         this.ApplicationId = params['applicationGUID']
@@ -85,7 +85,7 @@ export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
       (res: any) => {
 
 
-        console.log(res);
+        // console.log(res);
 
         if (res !== undefined) {
           
@@ -96,7 +96,7 @@ export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
           this.ApplicationArr.imagePath = imagePathArray.map((path: any) => ({ path: path.trim() }));;
 
           // Logging the updated data
-          console.log(this.ApplicationArr.imagePath);
+          // console.log(this.ApplicationArr.imagePath);
 
 
           // Create a new DOMParser
@@ -110,7 +110,7 @@ export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
           if (doc.body.firstChild !== null) {
             this.longDescription = doc.body.firstChild.textContent || "";
           }
-          console.log(this.longDescription); 
+          // console.log(this.longDescription); 
           this.isLoading = false;
 
         }
