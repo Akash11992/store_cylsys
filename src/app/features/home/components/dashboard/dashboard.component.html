@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <section class="card_section">
-    <div class="row"  *ngIf=" !isLoading">
+    <div class="row d-card"  *ngIf=" !isLoading">
       <div class="table-title">
         <div class="row d-flex pt-3 newd-breadcrumb">
 
@@ -193,7 +193,7 @@
               <h6 class="text-center">{{ application.price_type }}</h6>
             </div>
             <div class="col-md-8 text-center col-8">
-              <button class="btn p-0" (click)="callAppById(application)">View More</button>
+              <button class="btn p-0" [disabled]="application.applicationGUID == null" (click)="callAppById(application)">View More</button>
             </div>
           </div>
         </div>

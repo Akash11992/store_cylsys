@@ -516,8 +516,12 @@
                                 <input
                                   type="checkbox"
                                   class="form-check-input"
-                                  id="{{Industry['text']}}"
-                                />
+                                  [(ngModel)]="Industry.selected"
+                                  [checked]="Industry.selected"
+                                  name="industry"
+                                  value="{{ Industry.text }}"
+                                  (click)="onSelectFilter(Industry, 'industry',$event)"
+                                  />
                                 <label class="form-check-label" for="{{Industry['text']}}"
                                   >{{Industry.text}}</label
                                 >
@@ -621,6 +625,11 @@
                                   type="checkbox"
                                   class="form-check-input"
                                   id="{{platform['text']}}"
+                                  [(ngModel)]="platform.selected"
+                                  [checked]="platform.selected"
+                                  name="platform"
+                                  value="{{ platform.text }}"
+                                  (click)="onSelectFilter(platform, 'platform',$event)"
                                 />
                                 <label class="form-check-label" for="{{platform['text']}}">{{platform['text']}}</label>
                               </div>
@@ -690,6 +699,11 @@
                                   type="checkbox"
                                   class="form-check-input"
                                   id="{{price['text']}}"
+                                  [(ngModel)]="price.selected"
+                                  [checked]="price.selected"
+                                  name="price"
+                                  value="{{ price.text }}"
+                                  (click)="onSelectFilter(price, 'price',$event)"
                                 />
                                 <label class="form-check-label" for="{{price['text']}}"
                                   >{{price['text']}}</label
@@ -762,6 +776,11 @@
                                   type="checkbox"
                                   class="form-check-input"
                                   id="{{apptype['text']}}"
+                                  [(ngModel)]="apptype.selected"
+                                  [checked]="apptype.selected"
+                                  name="apptype"
+                                  value="{{ apptype.text }}"
+                                  (click)="onSelectFilter(apptype, 'apptype',$event)"
                                 />
                                 <label class="form-check-label" for="{{apptype['text']}}"
                                   >{{apptype['text']}}</label

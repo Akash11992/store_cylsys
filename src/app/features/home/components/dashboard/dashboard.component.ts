@@ -53,7 +53,6 @@ isLoading :boolean = true;
 
       
 
-        debugger
         this._sharedService.filterSharingSubject.subscribe(
 
           (borrower) => {
@@ -190,6 +189,7 @@ this.isLoading = true;
 
   }
   showAll(event:any){
+
     if(event=="show"){
       this.showHide = true ;
       this.globalPageNumber = 0;
@@ -211,7 +211,7 @@ this.isLoading = true;
     });
 
     }else{
-      this._sharedService.getToastPopup('Invalid GUID', 'Application', 'error');
+      // this._sharedService.getToastPopup('Invalid GUID', 'Application', 'error');
 
     }
 

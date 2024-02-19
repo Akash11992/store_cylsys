@@ -10,7 +10,8 @@ declare var require: any;
   templateUrl: './application-details.component.html',
   styleUrls: ['./application-details.component.css']
 })
-export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
+export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
+
   comingAppById: boolean = true;
   ApplicationArr: any = [];
   ApplicationId: any;
@@ -32,7 +33,7 @@ export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    
+
     this._route.queryParams.subscribe(params => {
       // console.log(params['applicationId']);
 
@@ -47,7 +48,7 @@ export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
     this.isLoading = true;
 
 
-   
+
 
   }
 
@@ -88,7 +89,7 @@ export class ApplicationDetailsComponent implements OnInit , AfterViewInit {
         // console.log(res);
 
         if (res !== undefined) {
-          
+
           this.ApplicationArr = res[0];
           let imagePathArray = res[0].imagePath.split(",");
 
