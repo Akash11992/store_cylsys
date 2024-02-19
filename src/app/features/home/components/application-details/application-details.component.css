@@ -127,7 +127,11 @@
   }
 
 
-
+  @media (max-width: 425px) {
+.card_section{
+  margin: 0px 0 0 -55px;
+}
+  }
 
 
 
