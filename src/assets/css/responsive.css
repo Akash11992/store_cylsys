@@ -80,7 +80,7 @@
    margin: 0 !important;
 }
 .titleTxt{
-  margin-left: 100px !important;
+  margin-left: 0px !important;
 }
 #banner h1 {
   font-size: 15px;
@@ -104,21 +104,33 @@
 
 @media (max-width: 425px) {
   .d-card {
-    margin: 30px 10px 0 -50px !important;
+    /* margin: 30px 0 0 -0 !important; */
 }
 .titleTxt{
   margin-left: 0 !important;
 }
 .txtBox {
-  margin: 0 0 0 -40px !important;
+  /* margin: 0 0 0 -40px !important; */
 }
 .app-card{
-  margin:15px 40px 0px -40px;
+  /* margin:15px 40px 0px -40px; */
 }
 }
 
 @media (max-width: 320px) {
   .d-card {
-    margin: 33px 15px 0 -50px !important;
+    /* margin: 33px 0 0 0 !important; */
 }
+}
+@media (max-height: 520px) {
+  .h-banner{
+    height: 250px;
+
+  }
+}
+@media (max-height: 300px) {
+  .h-banner{
+    height: 120px;
+
+  }
 }

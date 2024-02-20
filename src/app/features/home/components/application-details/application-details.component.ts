@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
 import * as M from 'materialize-css';
 declare var $: any;
 declare var require: any;
@@ -18,6 +20,7 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
   longDescription: string = '';
   name = 'Angular';
   isLoading: boolean = true;
+  apiUrl: any;
 
 
   options = { fullWidth: false };
@@ -33,7 +36,7 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.apiUrl = environment.apiUrl;
     this._route.queryParams.subscribe(params => {
       // console.log(params['applicationId']);
 
