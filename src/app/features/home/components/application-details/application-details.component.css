@@ -64,7 +64,7 @@
     border-top-right-radius: 25px;
     background-color: #7e7fe3;
     color: #fff;
-    margin-top: 110px;
+    margin-top: 95px;
   }
   .btn{
     color: #fff;
@@ -129,7 +129,7 @@
 
   @media (max-width: 425px) {
 .card_section{
-  margin: 0px 0 0 -55px;
+  margin: 0px 0 0 0;
 }
   }
 

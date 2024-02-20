@@ -147,10 +147,10 @@
           <div class="row g-0 align-items-center">
             <div class="col-md-4 col-4">
               <img *ngIf="application.logoPath" src="{{
-                  'https://cylsysadminstore.cylsys.com/' + application.logoPath
-                }}" class="img-fluid rounded-start" alt="..." />
+                  apiUrl+'/' + application.logoPath
+                }}" class="img-fluid rounded-start"style="height: 40px; width: 100px;" alt="..." />
               <img *ngIf="!application.logoPath" src="../../../../../assets/images/app-logo.png"
-                class="img-fluid rounded-start" alt="..." />
+                class="img-fluid rounded-start" style="height: 40px; width: 100px;" alt="..." />
             </div>
             <div class="col-md-8 col-8">
               <h5 class="card-title text-center">
@@ -175,10 +175,10 @@
               </ul>
             </div>
             <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
+              <!-- <h6>6729 Downloads</h6> -->
             </div>
             <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
+              <!-- <h6>6729 Reviews</h6> -->
             </div>
             <div class="col-md-12">
               <p class="card-text">

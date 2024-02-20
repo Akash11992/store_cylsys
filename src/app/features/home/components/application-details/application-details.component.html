@@ -126,11 +126,11 @@
                     <div class="card-body">
                         <div class="row g-0 align-items-center">
                             <div class="">
-                                <img *ngIf="ApplicationArr.logoPath" src="{{
-                                    'https://cylsysadminstore.cylsys.com/' + ApplicationArr.logoPath
-                                  }}" class="img-fluid rounded-start w-100"  alt="..." />
+                                <img *ngIf="ApplicationArr.logoPath" src="{{ apiUrl +
+                                    '/' + ApplicationArr.logoPath
+                                  }}" class="img-fluid rounded-start w-100" style="height: 100px;" alt="..." />
                                 <img *ngIf="!ApplicationArr.logoPath" src="../../../../../assets/images/app-logo.png"
-                                  class="img-fluid rounded-start w-100" alt="..." />
+                                  class="img-fluid rounded-start w-100"style="height: 100px;" alt="..." />
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                                            <div class=" col-12 text-center">
                                               <img
                                                 src="{{
-                                                    'https://cylsysadminstore.cylsys.com/' + images.path
+                                                    apiUrl+'/' + images.path
                                                   }}"
                                                 alt=""
                                                 class="w-100"
