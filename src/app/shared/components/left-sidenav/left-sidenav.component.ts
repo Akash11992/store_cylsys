@@ -211,8 +211,9 @@ this. applyFilter();
     });
     let nextData:any = {};
     nextData["data"] = paramsObj;
-    // console.log(nextData["data"]);
+    nextData["filter"] = this.selectedFilterArr;
     this._sharedService.filterSharingSubject.next(nextData)
+    console.log('filter txt',nextData["filter"]);
   }
 
 

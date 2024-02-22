@@ -70,7 +70,9 @@
     color: #fff;
     font-size: larger;
     font-weight: 500;
+    border: none;
   }
+
   .aboutapp{
     margin-top: 50px;
     padding-left: 45px;

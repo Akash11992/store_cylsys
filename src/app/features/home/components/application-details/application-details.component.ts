@@ -13,7 +13,7 @@ declare var require: any;
   styleUrls: ['./application-details.component.css']
 })
 export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
-
+  showSideFilter: boolean = false;
   comingAppById: boolean = true;
   ApplicationArr: any = [];
   ApplicationId: any;
@@ -136,7 +136,12 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
   }
 
 
+  goToAppWeb(event: any) {
+    console.log(event);
+    let url = event.appURL;
+    window.open(url, '_blank')?.focus();
 
+  }
 
 
 

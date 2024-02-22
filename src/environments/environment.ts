@@ -4,13 +4,15 @@
 
 export const environment = {
   production: false,
-  apiUrl:'https://storeapis.cylsys.com',
+  apiUrl:'https://cylsysadminstore.cylsys.com',
   apiMockUrl:'/api',
   domainUrl:'http://localhost:8000/',
   app_env: 'development',
 };
 
 /*
+  apiUrl:'https://cylsysadminstore.cylsys.com',
+*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
  *
