@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
   lstApplicationArr: any = [];
+  selectedFilterArr: any = [];
   totalRecords: number = 0;
   sortParamKey: string = "";
   totalitems: any;
@@ -28,12 +29,16 @@ export class DashboardComponent implements OnInit {
   searchParams: string = '';
   isLoading: boolean = true;
   apiUrl: any;
+  showBtn: boolean = true;
   constructor(
     private _homeService: HomeService,
     private _sharedService: SharedService,
     private _route: ActivatedRoute,
     private _router: Router
-  ) { }
+  ) { 
+    this.showBtn = true;
+
+  }
 
   ngOnInit(): void {
     this.apiUrl = environment.apiUrl;
@@ -45,6 +50,11 @@ export class DashboardComponent implements OnInit {
           borrower !== ''
             ? (this.searchParams = borrower)
             : (this.searchParams = '');
+            if(borrower){
+              this.showBtn = false;
+            }else{
+              this.showBtn = true;
+            }
 
           this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
         }
@@ -62,6 +72,14 @@ export class DashboardComponent implements OnInit {
           borrower["data"] !== ''
             ? (this.filterParams = borrower["data"])
             : (this.filterParams = {});
+
+           if(Object.keys(borrower["data"]).length === 0){
+             this.showBtn = true;
+            }else{
+              this.showBtn = false;
+            }
+            this.selectedFilterArr = borrower["filter"]
+            console.log('filter dashboard',this.selectedFilterArr);
 
           this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
         }
@@ -219,4 +237,12 @@ export class DashboardComponent implements OnInit {
     }
 
   }
+
+  goToAppWeb(event:any){  
+    console.log(event);
+    let url = event.appURL;           
+    window.open(url,'_blank')?.focus();
+  
+  }
+  
 }

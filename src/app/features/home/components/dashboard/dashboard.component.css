@@ -153,6 +153,45 @@
 .table>tbody>td{
   border-style : none;
 }
-.img-fluid{
-  
+.Mbtn{
+  font-size: 11px;
+  padding: 0 0 0 0 ;
+color: #4e4e4e;
+}
+.Mbtn:hover{
+  color: #008dd1;
+  text-decoration: underline;
+}
+
+.search-list li {
+  list-style: none;
+  border: 1px solid #fff;
+  background-color: #d4d4d4;
+  color: #000;
+  padding: 5px 12px 4px 9px;
+  margin: 15px 8px -15px 2px;
+}
+
+.search-list li img {
+  height: 10px;
+  width: 10px !important;
+}
+
+.selectedFilter {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: auto;
+}
+
+.selectedFilter::-webkit-scrollbar {
+  width: 3px;
+}
+.selectedFilter::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.selectedFilter::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 10px;
 }

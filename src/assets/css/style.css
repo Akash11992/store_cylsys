@@ -247,13 +247,95 @@ footer {
   display: flex;
   justify-content: space-between;
 }
-.breadcrumb-virtical {
-  width: 37px;
-  /* height: 100vh; */
-  /* left: -29px; */
-  position: relative;
-  margin-right: 5px;
+.vertical-breadcrumb {
+  width: 5%;
+  display: flex;
+  position: absolute;
+  height: 100%;
+  z-index: 999;
+
 }
+.breadcrumb-virtical {
+  position: relative;
+  /* width: 48px; */
+  /* max-width: 4%; */
+  padding: 0 10px;
+  /* height: 100%; */
+  left: -23px;
+  top: -48px;
+  /* top: 72px; */
+  z-index: 9;
+  background: #cecfcf;
+  border-right: 1px solid #394653;
+  box-sizing: border-box;
+  border-bottom: 1px solid #394653;
+}
+.breadcrumb-virtical h2 {
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -ms-transform-origin: right top 0;
+  -moz-transform-origin: right top 0;
+  -webkit-transform-origin: right top 0;
+  transform-origin: right top 0;
+  right: 99%;
+  padding-top: 0.75vw;
+  padding-right: 5vw;
+  /* padding-top: 1vw;
+  padding-right: 10vw; */
+  white-space: nowrap;
+  /* text-transform: uppercase; */
+  cursor: vertical-text;
+  position: absolute;
+  display: block;
+  height: auto;
+  direction: rtl;
+  z-index: 11;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 100%;
+  /* identical to box height, or 18px */
+  color: #665b5b;
+  /* opacity: 0.7; */
+}
+
+.breadcrumb-virtical2 h2 {
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -ms-transform-origin: right top 0;
+  -moz-transform-origin: right top 0;
+  -webkit-transform-origin: right top 0;
+  transform-origin: right top 0;
+  right: 99%;
+  padding-top: 1vw;
+  padding-right: 10vw;
+  white-space: nowrap;
+  /* text-transform: uppercase; */
+  cursor: vertical-text;
+  position: absolute;
+  display: block;
+  height: auto;
+  direction: rtl;
+  z-index: 11;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 100%;
+  /* identical to box height, or 18px */
+  color: #c4c4c4;
+  opacity: 0.7;
+}
+
+.hideshow1 {
+  display: block;
+}
+
 .breadcrumb-item{
   font-weight: 600;
   margin-bottom: -15px;

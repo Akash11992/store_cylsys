@@ -9,6 +9,7 @@ import { ApiHttpService } from 'src/app/core/services/api-http.service';
 export class HomeService {
   filterSharingSubject: BehaviorSubject<any>;
   currentFilter: Observable<any>
+  sideFilter: boolean = true;
 
   constructor(
     private _apiHttpService: ApiHttpService,

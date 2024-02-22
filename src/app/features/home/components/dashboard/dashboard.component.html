@@ -5,7 +5,24 @@
         <div class="row d-flex pt-3 newd-breadcrumb">
 
           <h2 class="breadcrumb-item">All Applications</h2>
-
+          <div class="col-md-12" *ngIf="selectedFilterArr?.length > 0">
+            <div class="row selectedFilter">
+              <div class="col-md-10 ">
+                <ul class="search-list d-flex flex-wrap p-0">
+                  <li *ngFor="let selectedFilter of selectedFilterArr">
+                    {{ selectedFilter["filterSubCatName"] }}
+                    <!-- {{
+                      selectedFilter["filterSubCatNam"]
+                        ? " :
+                              " + selectedFilter["filterSubCatNam"]
+                        : ""
+                    }} -->
+                    <!-- <img src="assets/img/close-delete_blue.svg" (click)="clearFilter(selectedFilter)"/> -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
           <div class="" *ngIf="lstApplicationArr.length > 0">
             <span class="txtCount">Showing {{ this.lstApplicationArr.length }} /
@@ -192,8 +209,11 @@
             <div class="col-md-4 text-center col-4">
               <h6 class="text-center">{{ application.price_type }}</h6>
             </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0" [disabled]="application.applicationGUID == null" (click)="callAppById(application)">View More</button>
+            <div class="col-md-4 text-center col-4">
+              <button class="btn p-0" (click)="goToAppWeb(application)">View</button>
+            </div>
+            <div class="col-md-4 text-center col-4">
+              <a class="Mbtn p-0"(click)="callAppById(application)">More Info...</a>
             </div>
           </div>
         </div>
@@ -268,7 +288,7 @@
       
 
 
-      <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0">
+      <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0 && showBtn">
         <button class="btn btn-outline-dark" (click)="showAll('show')" *ngIf="!showHide">See All</button>
         <button class="btn btn-outline-dark" (click)="showAll('close')" *ngIf="showHide">Close</button>
       </div>
