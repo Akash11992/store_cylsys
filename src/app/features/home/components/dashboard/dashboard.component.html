@@ -1,18 +1,21 @@
 <div class="col-md-12">
   <section class="card_section">
-    <div class="row d-card"  *ngIf=" !isLoading">
-      <div class="table-title">
-        <div class="row d-flex pt-3 newd-breadcrumb">
-
-          <h2 class="breadcrumb-item">All Applications</h2>
-
-
-          <div class="" *ngIf="lstApplicationArr.length > 0">
-            <span class="txtCount">Showing {{ this.lstApplicationArr.length }} /
-              {{ this.totalRecords }} Applications</span>
+    <div class="row" *ngIf="!isLoading">
+      <div class="col-md-12">
+        <div class="newd-breadcrumb pt-3">
+          <div class="col-6">
+            <h2 class="breadcrumb-item">All Applications</h2>
+          </div>
+          <div class="col-6" *ngIf="lstApplicationArr.length > 0">
+            <span class="txtCount"
+              >Showing {{ this.lstApplicationArr.length }} /
+              {{ this.totalRecords }} Applications</span
+            >
           </div>
         </div>
-        <!-- 
+      </div>
+
+      <!-- 
         <div class="col-12" *ngIf="comingAppById">
           <div class="row mt-5">
             <ng-container id="txtBox">
@@ -92,31 +95,49 @@
           </div>
         </div> -->
 
-
-        <div class="row pt-3" *ngIf="lstApplicationArr.length > 0">
-          <div class="col-sm-4">
+      <div class="col-md-12" *ngIf="lstApplicationArr.length > 0">
+        <div class="row pt-3">
+          <div class="col-md-4">
             <div class="search-box"></div>
           </div>
           <div class="col-md-8">
             <div class="datatable_rgt">
               <div class="pagination" *ngIf="this.totalitems !== undefined">
-                <a (click)="previousPage()" *ngIf="this.activeItem !== 1" [attr.disabled]="page === 1">
-                  <img src="../../../../../assets/images/arrow-left-blue.svg" alt="" />
+                <a
+                  (click)="previousPage()"
+                  *ngIf="this.activeItem !== 1"
+                  [attr.disabled]="page === 1"
+                >
+                  <img
+                    src="../../../../../assets/images/arrow-left-blue.svg"
+                    alt=""
+                  />
                   Previous
                 </a>
-                <ng-container *ngFor="
+                <ng-container
+                  *ngFor="
                     let item of totalitems
                       | slice : (page - 1) * itemsPerPage : page * itemsPerPage;
                     let ind = index
-                  ">
-                  <a [class.active]="item === activeItem" (click)="setActiveItem(item)">
+                  "
+                >
+                  <a
+                    [class.active]="item === activeItem"
+                    (click)="setActiveItem(item)"
+                  >
                     {{ item }}
                   </a>
                 </ng-container>
-                <a (click)="nextPage()" *ngIf="this.totalitems.length !== this.activeItem"
-                  [attr.disabled]="page === numberOfPages">
+                <a
+                  (click)="nextPage()"
+                  *ngIf="this.totalitems.length !== this.activeItem"
+                  [attr.disabled]="page === numberOfPages"
+                >
                   Next
-                  <img src="../../../../../assets/images/arrow-right-blue.svg" alt="" />
+                  <img
+                    src="../../../../../assets/images/arrow-right-blue.svg"
+                    alt=""
+                  />
                 </a>
               </div>
 
@@ -141,168 +162,215 @@
           </div>
         </div>
       </div>
+
       <!-- row 1 -->
-      <div class="col-md-3 card" *ngFor="let application of lstApplicationArr">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
-              <img *ngIf="application.logoPath" src="{{
-                  apiUrl+'/' + application.logoPath
-                }}" class="img-fluid rounded-start"style="height: 40px; width: 100px;" alt="..." />
-              <img *ngIf="!application.logoPath" src="../../../../../assets/images/app-logo.png"
-                class="img-fluid rounded-start" style="height: 40px; width: 100px;" alt="..." />
+      <div class="col-md-12">
+        <div class="row">
+          <div
+            class="col-md-3 col-6 card"
+            *ngFor="let application of lstApplicationArr"
+          >
+            <div class="card-body">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4 col-4">
+                  <img
+                    *ngIf="application.logoPath"
+                    src="{{ apiUrl + '/' + application.logoPath }}"
+                    class="img-fluid rounded-start"
+                    style="height: 40px; width: 100px"
+                    alt="..."
+                  />
+                  <img
+                    *ngIf="!application.logoPath"
+                    src="../../../../../assets/images/app-logo.png"
+                    class="img-fluid rounded-start"
+                    style="height: 40px; width: 100px"
+                    alt="..."
+                  />
+                </div>
+                <div class="col-md-8 col-8">
+                  <h5 class="card-title text-center">
+                    {{ application.applicationName }}
+                  </h5>
+                  <ul class="starsList">
+                    <li>
+                      <img src="assets/images/Star_yellow.svg" alt="" />
+                    </li>
+                    <li>
+                      <img src="assets/images/Star_yellow.svg" alt="" />
+                    </li>
+                    <li>
+                      <img src="assets/images/Star_yellow.svg" alt="" />
+                    </li>
+                    <li>
+                      <img src="assets/images/Star_yellow.svg" alt="" />
+                    </li>
+                    <li>
+                      <img src="assets/images/Star_white.svg" alt="" />
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6 col-6">
+                  <!-- <h6>6729 Downloads</h6> -->
+                </div>
+                <div class="col-md-6 col-6">
+                  <!-- <h6>6729 Reviews</h6> -->
+                </div>
+                <div class="col-md-12">
+                  <p class="card-text">
+                    {{ application.shortDescription }}
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">
-                {{ application.applicationName }}
-              </h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <!-- <h6>6729 Downloads</h6> -->
-            </div>
-            <div class="col-md-6 col-6">
-              <!-- <h6>6729 Reviews</h6> -->
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                {{ application.shortDescription }}
-              </p>
+            <div class="card-footer">
+              <div class="row g-0 align-items-center">
+                <div class="col-md-4 text-center col-4">
+                  <h6 class="text-center">{{ application.price_type }}</h6>
+                </div>
+                <div class="col-md-8 text-center col-8">
+                  <button
+                    class="btn p-0"
+                    [disabled]="application.applicationGUID == null"
+                    (click)="callAppById(application)"
+                  >
+                    View More
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">{{ application.price_type }}</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0" [disabled]="application.applicationGUID == null" (click)="callAppById(application)">View More</button>
+          <!-- <div class="col-md-3 card">
+          <div class="card-body">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-4 col-4">
+                <img
+                  src="assets/images/digital_transaction.svg"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
+              </div>
+              <div class="col-md-8 col-8">
+                <h5 class="card-title text-center">
+                  Digital <br />
+                  Transaction.
+                </h5>
+                <ul class="starsList">
+                  <li>
+                    <img src="assets/images/Star_yellow.svg" alt="" />
+                  </li>
+                  <li>
+                    <img src="assets/images/Star_yellow.svg" alt="" />
+                  </li>
+                  <li>
+                    <img src="assets/images/Star_yellow.svg" alt="" />
+                  </li>
+                  <li>
+                    <img src="assets/images/Star_yellow.svg" alt="" />
+                  </li>
+                  <li>
+                    <img src="assets/images/Star_white.svg" alt="" />
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6 col-6">
+                <h6>6729 Downloads</h6>
+              </div>
+              <div class="col-md-6 col-6">
+                <h6>6729 Reviews</h6>
+              </div>
+              <div class="col-md-12">
+                <p class="card-text">
+                  DTS is a utility that handles all the transaction
+                  processing occurring in mutual fund companies .DTS
+                  works on daily basis and handles all the transaction
+                  related data.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- <div class="col-md-3 card">
-        <div class="card-body">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 col-4">
+          <div class="card-footer">
+            <div class="row g-0 align-items-center">
+              <div class="col-md-4 text-center col-4">
+                <h6 class="text-center">Paid</h6>
+              </div>
+              <div class="col-md-8 text-center col-8">
+                <button class="btn p-0">View</button>
+              </div>
+            </div>
+          </div>
+        </div>-->
+          <div
+            class="col-md-12 text-center my-5"
+            *ngIf="lstApplicationArr.length == 0 && !isLoading"
+          >
+            <!-- <div class="col-md-4 col-4"> -->
+            <button class="no_data" [disabled]="lstApplicationArr">
               <img
-                src="assets/images/digital_transaction.svg"
-                class="img-fluid rounded-start"
+                src="../../../../../assets/images/no_data_found.svg"
+                class=""
                 alt="..."
+                width="150px"
               />
-            </div>
-            <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">
-                Digital <br />
-                Transaction.
-              </h5>
-              <ul class="starsList">
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_yellow.svg" alt="" />
-                </li>
-                <li>
-                  <img src="assets/images/Star_white.svg" alt="" />
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Downloads</h6>
-            </div>
-            <div class="col-md-6 col-6">
-              <h6>6729 Reviews</h6>
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                DTS is a utility that handles all the transaction
-                processing occurring in mutual fund companies .DTS
-                works on daily basis and handles all the transaction
-                related data.
-              </p>
-            </div>
+            </button>
+            <!-- </div> -->
+          </div>
+
+          <div
+            class="col-md-12 text-center my-5"
+            *ngIf="lstApplicationArr.length !== 0"
+          >
+            <button
+              class="btn btn-outline-dark"
+              (click)="showAll('show')"
+              *ngIf="!showHide"
+            >
+              See All
+            </button>
+            <button
+              class="btn btn-outline-dark"
+              (click)="showAll('close')"
+              *ngIf="showHide"
+            >
+              Close
+            </button>
           </div>
         </div>
-        <div class="card-footer">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
-              <h6 class="text-center">Paid</h6>
-            </div>
-            <div class="col-md-8 text-center col-8">
-              <button class="btn p-0">View</button>
-            </div>
-          </div>
-        </div>
-      </div>-->
-      <div class="col-md-12 text-center  my-5" *ngIf="lstApplicationArr.length == 0 && !isLoading">
-        <!-- <div class="col-md-4 col-4"> -->
-        <button class="no_data" [disabled]="lstApplicationArr">
-          <img src="../../../../../assets/images/no_data_found.svg" class="" alt="..." width="150px" />
-        </button>
-        <!-- </div> -->
-      </div>
-      
-
-
-      <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0">
-        <button class="btn btn-outline-dark" (click)="showAll('show')" *ngIf="!showHide">See All</button>
-        <button class="btn btn-outline-dark" (click)="showAll('close')" *ngIf="showHide">Close</button>
+        <ng-container *ngIf="isLoading">
+          <table class="table pvb-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="10">
+                  <br />
+                  <br />
+                  <br />
+                  <div class="no_data fetch_data">
+                    <img
+                      src="../../../../../assets/images/fetchingdata.svg"
+                      alt=""
+                      width="150px"
+                    />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
       </div>
     </div>
-    <ng-container *ngIf="isLoading">
-      <table class="table pvb-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="10">
-              <br>
-              <br>
-              <br>
-              <div class="no_data fetch_data">
-                <img src="../../../../../assets/images/fetchingdata.svg" alt="" width="150px" />
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </ng-container>
   </section>
 </div>

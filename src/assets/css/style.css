@@ -96,7 +96,7 @@ body {
 }
 
 .sidebar {
-  width: 223px;
+  width: auto;
   top: 521px;
   left: 20px;
   border-radius: 15px;
@@ -240,12 +240,10 @@ footer {
   margin: 30px 0 0 0;
 }
 .newd-breadcrumb {
-  /* white / 20% */
   border-bottom: 1px solid rgba(19, 18, 18, 0.2) !important;
-  padding: 0 0 0 10px;
-  margin: 10px 3px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .breadcrumb-virtical {
   width: 37px;
