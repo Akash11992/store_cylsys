@@ -10,7 +10,7 @@
 }
 
 body {
-  font-family: "Inter";
+  /* font-family: "Inter"; */
   color: var(--color-black);
 }
 
@@ -40,7 +40,7 @@ body {
   background-image: url(../images/banner.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 60vh;
+  height: 66vh;
   color: var(--color-white);
 }
 #banner h1 {
@@ -352,7 +352,6 @@ footer {
   border: none;
   background-color: transparent;
   margin-top: 20%;
-
 }
 
 .toast-container {
@@ -367,4 +366,10 @@ footer {
   pointer-events: none;
   position: fixed !important;
   z-index: 123456789 !important;
+}
+
+.filter .offcanvas.offcanvas-end {
+  background-color: transparent !important;
+  width: auto;
+  border: none;
 }
