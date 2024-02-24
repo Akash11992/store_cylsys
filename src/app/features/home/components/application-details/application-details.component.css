@@ -1,14 +1,14 @@
 
 .txtBox {
     height: 45vh;
-    margin: 0 0 0 20px;
+    /* margin: 0 0 0 20px; */
     border-left: 1px solid #4e4e4e;
-    border-right: 1px solid #4e4e4e;
+    /* border-right: 1px solid #4e4e4e; */
   }
   .titleTxt{
     text-align: justify;
     color: #475260;
-      margin-left: 120px;
+      margin-left: 50px;
   }
   .fontSize {
     text-align: center;
@@ -80,6 +80,9 @@
 
   .bold{
     font-size: larger;
+  }
+  .app-card{
+    border-radius: 5px 5px 30px 30px;
   }
   
   @media (max-width: 767px) {
@@ -198,4 +201,8 @@
   visibility: visible;
   display: block;
   visibility: visible;
+}
+.pvb-table{
+  border-bottom: none !important;
+  border-bottom-color: #fff !important;
 }

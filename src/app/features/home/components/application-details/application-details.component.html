@@ -1,16 +1,16 @@
 <div class="col-12" *ngIf="comingAppById && !isLoading">
-  <!-- <div class="tabhide p-0">
+  <div class="tabhide p-0">
     <div class="vertical-breadcrumb">
       <div class="col-md-6 breadcrumb-virtical hideshow1">
         <a [routerLink]="['/notification']
           " class="left_arrow" style="padding-top: 25px"><img src="../../../../../assets/images/arrow-left-black.svg" alt="" /></a>
         <h2>
-           Applications
+           Application
         </h2>
         
       </div>
     </div>
-  </div> -->
+  </div>
     <div class="row mt-5">
         <ng-container id="txtBox">
             <div class="col-md-8">
@@ -137,12 +137,14 @@
                 <div class="card app-card">
                     <div class="card-body">
                         <div class="row g-0 align-items-center">
-                            <div class="">
+                            <div class=""style=" align-items: center;
+                            display: flex;
+                            justify-content: center;">
                                 <img *ngIf="ApplicationArr.logoPath" src="{{ apiUrl +
                                     '/' + ApplicationArr.logoPath
-                                  }}" class="img-fluid rounded-start w-100" style="height: 100px;" alt="..." />
+                                  }}" class="img-fluid rounded-start" style="    height: 50%;  width: 50%;" alt="..." />
                                 <img *ngIf="!ApplicationArr.logoPath" src="../../../../../assets/images/app-logo.png"
-                                  class="img-fluid rounded-start w-100"style="height: 100px;" alt="..." />
+                                  class="img-fluid rounded-start w-100"style="   height: 50%; width: 50%;" alt="..." />
                             </div>
                         </div>
                     </div>
@@ -490,6 +492,9 @@
                   
                   
                   </div> -->
+
+                  
+      
                   
 
 

@@ -1,6 +1,6 @@
 <div class="col-md-12">
   <section class="card_section">
-    <div class="row d-card"  *ngIf=" !isLoading">
+    <div class="row d-card" *ngIf=" !isLoading">
       <div class="table-title">
         <div class="row d-flex pt-3 newd-breadcrumb">
 
@@ -137,23 +137,27 @@
                 </a>
               </div>
 
-              <!-- <div class="showData">
+              <div class="showData dropdown">
                     <h4 class="m-0">
-                      <a class="dropnav_link" role="button" data-toggle="dropdown">
-                        <span class="group-by">{{ this.paging }} per page</span>
-                        <img src="assets/img/arrow-down-blue.svg" alt="" class="pl-2" />
+                      <a class="" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="group-by" style="font-size: 15px;">{{ this.pageSize }} per page</span>
+                        <img src="../../../../../assets/images/arrow-down-blue.svg" alt="" width="15px" class="pl-2" />
                       </a>
 
-                      <div class="dropdown-menu">
+                      <div class="dropdown-menu" style="    position: absolute;
+                      transform: translate3d(747px, -126px, 0px);
+                      top: 0px;
+                      left: 0px;
+                      will-change: transform;
+                  ">
                         <a (click)="fnPaging(list.name)" class="dropdown-item groupdpdn-item" *ngFor="
                                             let list of groupByPerpage;
-                                            let rowIndex = index
                                           ">
                           {{ list.name }}
                         </a>
                       </div>
                     </h4>
-                  </div> -->
+                  </div>
             </div>
           </div>
         </div>
@@ -161,19 +165,30 @@
       <!-- row 1 -->
       <div class="col-md-3 card" *ngFor="let application of lstApplicationArr">
         <div class="card-body">
+          <div>
+            <h6 class="text-center" style="    padding: 2px;
+            margin: 0 -10px 0 0;
+            float: right;
+            border: 1px solid #9d9a9a;
+            background-color: #ede0e0;
+            border-radius: 2px;
+        ">{{ application.price_type }}</h6>
+          </div>
           <div class="row g-0 align-items-center">
+            <div class="row" style="max-width: 275px;">
+
             <div class="col-md-4 col-4">
               <img *ngIf="application.logoPath" src="{{
                   apiUrl+'/' + application.logoPath
-                }}" class="img-fluid rounded-start"style="height: 40px; width: 100px;" alt="..." />
+                }}" class="img-fluid rounded-start" style="height: 40px; width: 100px;" alt="..." />
               <img *ngIf="!application.logoPath" src="../../../../../assets/images/app-logo.png"
                 class="img-fluid rounded-start" style="height: 40px; width: 100px;" alt="..." />
             </div>
             <div class="col-md-8 col-8">
-              <h5 class="card-title text-center">
+              <h5 class="card-title appName text-center">
                 {{ application.applicationName }}
               </h5>
-              <ul class="starsList">
+              <!-- <ul class="starsList">
                 <li>
                   <img src="assets/images/Star_yellow.svg" alt="" />
                 </li>
@@ -189,8 +204,10 @@
                 <li>
                   <img src="assets/images/Star_white.svg" alt="" />
                 </li>
-              </ul>
+              </ul> -->
             </div>
+          </div>
+
             <div class="col-md-6 col-6">
               <!-- <h6>6729 Downloads</h6> -->
             </div>
@@ -203,17 +220,18 @@
               </p>
             </div>
           </div>
+
         </div>
         <div class="card-footer">
           <div class="row g-0 align-items-center">
-            <div class="col-md-4 text-center col-4">
+            <!-- <div class="col-md-4 text-center col-4">
               <h6 class="text-center">{{ application.price_type }}</h6>
-            </div>
-            <div class="col-md-4 text-center col-4">
+            </div> -->
+            <div class="col-md-6 text-center col-6">
               <button class="btn p-0" (click)="goToAppWeb(application)">View</button>
             </div>
-            <div class="col-md-4 text-center col-4">
-              <a class="Mbtn p-0"(click)="callAppById(application)">More Info...</a>
+            <div class="col-md-6 text-center col-6">
+              <a class="Mbtn p-0" (click)="callAppById(application)">More Info...</a>
             </div>
           </div>
         </div>
@@ -285,7 +303,7 @@
         </button>
         <!-- </div> -->
       </div>
-      
+
 
 
       <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0 && showBtn">
@@ -294,7 +312,7 @@
       </div>
     </div>
     <ng-container *ngIf="isLoading">
-      <table class="table pvb-table">
+      <table class="table pvb-table"style="">
         <thead>
           <tr>
             <th></th>
