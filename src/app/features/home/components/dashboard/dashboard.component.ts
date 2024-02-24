@@ -20,6 +20,8 @@ export class DashboardComponent implements OnInit {
   numberOfPages: number = 0;
   activeItem: number = 1;
   pageSize = 10;
+  paging = 10;
+  groupByPerpage: any = [];
   currentPage: any;
   totalcount: any;
   globalPageNumber: number = 0;
@@ -30,6 +32,8 @@ export class DashboardComponent implements OnInit {
   isLoading: boolean = true;
   apiUrl: any;
   showBtn: boolean = true;
+  tooltipText: any;
+
   constructor(
     private _homeService: HomeService,
     private _sharedService: SharedService,
@@ -37,10 +41,21 @@ export class DashboardComponent implements OnInit {
     private _router: Router
   ) { 
     this.showBtn = true;
-
+    this.groupByPerpage = [
+      { name: "10" },
+      { name: "25" },
+      { name: "50" },
+      { name: "100" },
+    ];
   }
 
   ngOnInit(): void {
+    this.groupByPerpage = [
+      { name: "10" },
+      { name: "25" },
+      { name: "50" },
+      { name: "100" },
+    ];
     this.apiUrl = environment.apiUrl;
     // if (this._homeService.filterSharingSubject.value !== "") {
     this._homeService.filterSharingSubject.subscribe(
@@ -197,7 +212,16 @@ export class DashboardComponent implements OnInit {
     this.globalPageNumber = (this.activeItem * 10 - 10);
     this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
   }
+  async fnPaging(obj:any) {
+    
 
+    this.globalPageNumber = 0;
+    this.pageSize = obj;
+
+    await  this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
+
+
+  }
   setActiveItem(item: any) {
 
 
@@ -245,4 +269,26 @@ export class DashboardComponent implements OnInit {
   
   }
   
+
+  tooltipOptions = {
+    'placement': 'top',
+    'showDelay': 500,
+    'tooltip-class': 'riskTooltip'
+  };
+
+  actionTooltipOptions = {
+    'placement': 'top',
+    'showDelay': 500,
+    'tooltip-class': 'actionTooltip'
+  }
+
+  actionTooltip = `<div class="actionTooltiptxt" >
+<div class="row" >
+  <div class="col-md-12">
+    <p class="m-0">Clone </p>
+  </div>                                
+</div> 
+</div>`;
+
+
 }

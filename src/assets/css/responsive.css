@@ -14,6 +14,15 @@
   .starsRate {
     margin: -44px 0 0 170px !important;
   }
+  .breadcrumb-virtical {
+    left: -23px;
+    top: -48px;
+  }
+  .vertical-breadcrumb {
+     height: 200%;
+
+  }
+  
 }
 
 @media (max-width: 1025px) {
