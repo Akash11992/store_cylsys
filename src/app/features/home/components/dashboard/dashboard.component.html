@@ -2,9 +2,9 @@
   <section class="card_section">
     <div class="row d-card" *ngIf=" !isLoading">
       <div class="table-title">
-        <div class="row d-flex pt-3 newd-breadcrumb">
+        <div class="row d-flex pt-3 newd-breadcrumb"[ngClass]="selectedFilterArr?.length > 0?'filterTab':'filterTab'">
 
-          <h2 class="breadcrumb-item">All Applications</h2>
+          <!-- <h2 class="breadcrumb-item">All Applications</h2> -->
           <div class="col-md-12" *ngIf="selectedFilterArr?.length > 0">
             <div class="row selectedFilter">
               <div class="col-md-10 ">
@@ -23,11 +23,11 @@
               </div>
             </div>
           </div>
-
+<!-- 
           <div class="" *ngIf="lstApplicationArr.length > 0">
             <span class="txtCount">Showing {{ this.lstApplicationArr.length }} /
               {{ this.totalRecords }} Applications</span>
-          </div>
+          </div> -->
         </div>
         <!-- 
         <div class="col-12" *ngIf="comingAppById">
@@ -166,28 +166,25 @@
       <div class="col-md-3 card" *ngFor="let application of lstApplicationArr">
         <div class="card-body">
           <div>
-            <h6 class="text-center" style="    padding: 2px;
-            margin: 0 -10px 0 0;
-            float: right;
-            border: 1px solid #9d9a9a;
-            background-color: #ede0e0;
-            border-radius: 2px;
-        ">{{ application.price_type }}</h6>
+            <span class="text-center price-container" >{{ application.price_type }}</span>
           </div>
           <div class="row g-0 align-items-center">
             <div class="row" style="max-width: 275px;">
 
-            <div class="col-md-4 col-4">
+            <div class="col-md-4 col-4 p-0">
               <img *ngIf="application.logoPath" src="{{
                   apiUrl+'/' + application.logoPath
                 }}" class="img-fluid rounded-start" style="height: 40px; width: 100px;" alt="..." />
               <img *ngIf="!application.logoPath" src="../../../../../assets/images/app-logo.png"
                 class="img-fluid rounded-start" style="height: 40px; width: 100px;" alt="..." />
             </div>
-            <div class="col-md-8 col-8">
+            <div class="col-md-8 col-8 p-0">
               <h5 class="card-title appName text-center">
                 {{ application.applicationName }}
               </h5>
+
+             
+              <!-- <h2>{{Finalrating}}</h2> -->
               <!-- <ul class="starsList">
                 <li>
                   <img src="assets/images/Star_yellow.svg" alt="" />
@@ -207,20 +204,23 @@
               </ul> -->
             </div>
           </div>
-
-            <div class="col-md-6 col-6">
-              <!-- <h6>6729 Downloads</h6> -->
-            </div>
-            <div class="col-md-6 col-6">
-              <!-- <h6>6729 Reviews</h6> -->
-            </div>
-            <div class="col-md-12">
-              <p class="card-text">
-                {{ application.shortDescription }}
-              </p>
-            </div>
+          <div class="col-md-12 starsList">
+            <ngb-rating  class="" [max]="5" [rate]="application.application_Rating" [readonly]="true"></ngb-rating>
           </div>
-
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-6">
+            <h6>{{application.downloadCount}} Downloads</h6>
+          </div>
+          <div class="col-md-6 col-6">
+            <h6>{{application.application_Rating}} Reviews</h6>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <p class="card-text">
+            {{ application.shortDescription }}
+          </p>
+        </div>
         </div>
         <div class="card-footer">
           <div class="row g-0 align-items-center">
@@ -306,10 +306,10 @@
 
 
 
-      <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0 && showBtn">
+      <!-- <div class="col-md-12 text-center my-5" *ngIf="lstApplicationArr.length !== 0 && showBtn">
         <button class="btn btn-outline-dark" (click)="showAll('show')" *ngIf="!showHide">See All</button>
         <button class="btn btn-outline-dark" (click)="showAll('close')" *ngIf="showHide">Close</button>
-      </div>
+      </div> -->
     </div>
     <ng-container *ngIf="isLoading">
       <table class="table pvb-table"style="">
@@ -344,3 +344,5 @@
     </ng-container>
   </section>
 </div>
+
+

@@ -12,5 +12,8 @@ year:any;
   ngOnInit(): void {
     this.year = new Date().getFullYear()
   }
-
+webHome(){
+  let url = 'https://cylsys.com/'
+  window.open(url,'_blank')?.focus();
+}
 }

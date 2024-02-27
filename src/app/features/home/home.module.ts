@@ -5,6 +5,8 @@ import { HomeMainComponent } from './components/home-main/home-main.component';
 import { SharedModule } from "../../shared/shared.module";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -19,7 +21,9 @@ import { ApplicationDetailsComponent } from './components/application-details/ap
     imports: [
         CommonModule,
         HomeRoutingModule,
-        SharedModule
+        SharedModule,
+        NgbModule,
+        NgbRatingModule
     ],
     // exports: [
     //   HeaderComponent,

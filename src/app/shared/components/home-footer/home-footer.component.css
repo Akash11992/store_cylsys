@@ -1,0 +1,10 @@
+footer a {
+    text-decoration: none;
+    color: var(--color-black);
+}
+footer a:hover{
+    color: var(--color-blue);
+    font-size: large;
+    font-weight: 400;
+    width: 40px;
+}

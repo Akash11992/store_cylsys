@@ -87,8 +87,6 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
     let appQueryParams = this._setPaginationConfigNew();
     this._homeService.getApplicationByIdApi(appQueryParams).subscribe(
       (res: any) => {
-
-
         // console.log(res);
 
         if (res !== undefined) {
@@ -101,7 +99,6 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
 
           // Logging the updated data
           // console.log(this.ApplicationArr.imagePath);
-
 
           // Create a new DOMParser
           const parser = new DOMParser();
@@ -118,8 +115,6 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
           this.isLoading = false;
 
         }
-
-
       },
       (err) => {
         this.isLoading = false;
@@ -137,6 +132,7 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
 
 
   goToAppWeb(event: any) {
+    this._fetchAppDetailsForDownloadCount();
     console.log(event);
     let url = event.appURL;
     window.open(url, '_blank')?.focus();
@@ -146,7 +142,37 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
 
 
 
-
+  private _setPaginationConfig(): object {
+    let sortQueryParams = {};
+    sortQueryParams = {
+      applicationGUID: this.ApplicationId,
+    }
+   //final query params
+    return {
+      ...sortQueryParams,
+    };
+  }
+  
+  
+  
+  _fetchAppDetailsForDownloadCount() {
+    let appQueryParams = this._setPaginationConfig();
+    this._homeService.getApplicationByIdApi(appQueryParams).subscribe(
+      (res: any) => {
+        },
+      (err) => {
+        if (err.status == 404) {
+          this._sharedService.getToastPopup(err.error, 'Application', 'error');
+        } else {
+          this._sharedService.getToastPopup(err.statusText, 'Application', 'error');
+  
+        }
+      }
+    );
+  
+  }
+  
+  
 
 
 
