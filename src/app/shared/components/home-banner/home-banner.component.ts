@@ -11,5 +11,8 @@ export class HomeBannerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  visitTmsCS(){
+    let url = 'https://tmscs.cylsys.com/'
+    window.open(url,'_blank')?.focus();
+  }
 }

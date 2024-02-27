@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HashLocationStrategy } from '@angular/common';
 import { LocationStrategy } from '@angular/common';
 import { TooltipModule } from 'ng2-tooltip-directive';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // import { HeaderComponent } from './shared/components/header/header.component';
 // import { LeftSidenavComponent } from './shared/components/left-sidenav/left-sidenav.component';
@@ -31,7 +32,8 @@ import { TooltipModule } from 'ng2-tooltip-directive';
     CoreModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    TooltipModule
+    TooltipModule,
+    NgbModule
     
     
   ],

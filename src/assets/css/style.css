@@ -6,6 +6,7 @@
   --color-purple: #7e7fe3;
   --color-yellow: #eab913;
   --color-black: #1c2a3a;
+  --color-blue: #008dd1;
   --color-lightblack: rgba(0, 0, 0, 0.1);
   --sl-shadow-large: 0 0px 0px hsl(240 3.8% 46.1% / 12%);
   --theme-card-hover-background-color: var(--sl-color-neutral-0);
@@ -177,17 +178,18 @@ body {
 .card_section .card .card-body h6,
 .card_section .card .card-footer h6,
 .card_section h6 {
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 650;
   line-height: 12px;
   letter-spacing: 0em;
   text-align: left;
   margin-top: 10px;
+  color: #3c3b3b;
 }
 
 .card_section .card .card-body p {
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 24px;
   letter-spacing: 0em;
   text-align: justify;
@@ -244,7 +246,7 @@ footer {
 }
 .newd-breadcrumb {
   /* white / 20% */
-  border-bottom: 1px solid rgba(19, 18, 18, 0.2) !important;
+  /* border-bottom: 1px solid rgba(19, 18, 18, 0.2) !important; */
   padding: 0 0 0 10px;
   margin: 10px 3px;
   display: flex;
@@ -264,7 +266,7 @@ footer {
   /* max-width: 4%; */
   padding: 0 10px;
   /* height: 100%; */
-  left: -82px;
+  left: -40px;
   top: -44px;
   /* top: 72px; */
   z-index: 9;

@@ -3,6 +3,7 @@ import { HomeService } from '../../services/home.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/shared/services/shared.service';
 import { environment } from 'src/environments/environment';
+import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,14 +14,14 @@ export class DashboardComponent implements OnInit {
   lstApplicationArr: any = [];
   selectedFilterArr: any = [];
   totalRecords: number = 0;
-  sortParamKey: string = "";
+  sortParamKey: string = "desc";
   totalitems: any;
   itemsPerPage = 10;
   page = 1;
   numberOfPages: number = 0;
   activeItem: number = 1;
-  pageSize = 10;
-  paging = 10;
+  pageSize = 25;
+  paging = 25;
   groupByPerpage: any = [];
   currentPage: any;
   totalcount: any;
@@ -33,6 +34,12 @@ export class DashboardComponent implements OnInit {
   apiUrl: any;
   showBtn: boolean = true;
   tooltipText: any;
+  ratingcount=0;
+  ApplicationId: any;
+
+  Finalrating:any;
+  
+
 
   constructor(
     private _homeService: HomeService,
@@ -42,19 +49,19 @@ export class DashboardComponent implements OnInit {
   ) { 
     this.showBtn = true;
     this.groupByPerpage = [
-      { name: "10" },
       { name: "25" },
       { name: "50" },
       { name: "100" },
+      { name: "250" },
     ];
   }
 
   ngOnInit(): void {
     this.groupByPerpage = [
-      { name: "10" },
       { name: "25" },
       { name: "50" },
       { name: "100" },
+      { name: "250" },
     ];
     this.apiUrl = environment.apiUrl;
     // if (this._homeService.filterSharingSubject.value !== "") {
@@ -112,7 +119,7 @@ export class DashboardComponent implements OnInit {
     let sortQueryParams = {};
     sortQueryParams = {
       searchText: this.searchParams,
-      sortColumn: this.sortParamKey,
+      sortColumn: "applicationOrder",
       sortDirection: this.sortParamKey,
     }
 
@@ -179,6 +186,9 @@ export class DashboardComponent implements OnInit {
             this.totalRecords / this.pageSize
           );
           // console.log('lstApplicationArr',this.lstApplicationArr );
+          this.ratingcount = 3.44
+  this.Finalrating= (this.ratingcount).toFixed(2);
+
         }
 
       },
@@ -242,7 +252,7 @@ export class DashboardComponent implements OnInit {
     } else {
       this.showHide = false;
       this.globalPageNumber = 0;
-      this.pageSize = 10;
+      this.pageSize = this.paging;
       this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
     }
   }
@@ -262,7 +272,9 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  goToAppWeb(event:any){  
+  goToAppWeb(event:any){
+    this.ApplicationId = event.applicationGUID
+    this._fetchAppDetailsForDownloadCount();
     console.log(event);
     let url = event.appURL;           
     window.open(url,'_blank')?.focus();
@@ -289,6 +301,38 @@ export class DashboardComponent implements OnInit {
   </div>                                
 </div> 
 </div>`;
+
+
+private _setPaginationConfig(): object {
+  let sortQueryParams = {};
+  sortQueryParams = {
+    applicationGUID: this.ApplicationId,
+  }
+ //final query params
+  return {
+    ...sortQueryParams,
+  };
+}
+
+
+
+_fetchAppDetailsForDownloadCount() {
+  let appQueryParams = this._setPaginationConfig();
+  this._homeService.getApplicationByIdApi(appQueryParams).subscribe(
+    (res: any) => {
+      },
+    (err) => {
+      if (err.status == 404) {
+        this._sharedService.getToastPopup(err.error, 'Application', 'error');
+      } else {
+        this._sharedService.getToastPopup(err.statusText, 'Application', 'error');
+
+      }
+    }
+  );
+
+}
+
 
 
 }

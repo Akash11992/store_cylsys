@@ -57,6 +57,10 @@
 
 .showData {
   color: #008dd1;
+  padding: 5px;
+}
+.showData h4 a{
+text-decoration: none;
 }
 
 .showData .group-by {
@@ -224,8 +228,8 @@ color: #4e4e4e;
 .card-text{
   display: block;
   text-overflow: ellipsis;
-  width: 49ch;
-  max-height: 88px;
+  width: 45ch;
+  max-height: 100%;
   overflow: hidden;
   white-space: pre-line;
 }
@@ -233,7 +237,7 @@ color: #4e4e4e;
   .appName{
  
 
-    width: 14ch !important;
+    width: 18ch !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     line-height: 15px !important;
@@ -248,4 +252,46 @@ color: #4e4e4e;
 .pvb-table{
   border-bottom: none !important;
   border-bottom-color: #fff !important;
+}
+.card-footer button:hover{
+  background-color: var(--color-purple) !important;
+  border: 0.5px solid #77bc1f !important;
+  box-sizing: border-box;
+  border-radius: 4px;
+  color: #fff !important;
+}
+.card-footer .Mbtn:hover{
+  color:var(--color-purple) !important;
+  font-size: 13px;
+  font-weight: 400;
+}
+.filterTab{
+  margin: 0;
+  padding: 0;
+}
+.price-container {
+  margin-top: 0px !important;
+  margin: 0 -10px 0 0;
+  float: right;
+  color: #005FB8;
+  background: rgb(239, 246, 252);
+  border-radius: 4px;
+  padding: 2px 8px 3px;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline-block;
+
+}
+ngb-rating{
+  color: #ffc107;
+  font-size: 20px;
+  border: #999;
+}
+.starsList {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 0px 0px 30px;
 }
