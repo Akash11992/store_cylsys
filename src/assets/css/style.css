@@ -44,7 +44,7 @@ body {
   background-image: url(../images/banner.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 66vh;
+  height: 50vh;
   color: var(--color-white);
 }
 #banner h1 {
@@ -70,6 +70,9 @@ body {
 #banner .carousel-control-next,
 #banner .carousel-control-prev {
   width: 5%;
+}
+#banner .carousel-indicators{
+  margin-bottom: 4rem !important;
 }
 
 #banner .carousel-indicators button {
@@ -387,6 +390,13 @@ footer {
   color: #061320;
 }
 .dropdown-item {
-  border-bottom: 1px solid #ddd !important;
+  border-bottom: 1px solid #dcdcdc !important;
   font-weight: bold;
+  background: #A8C7E4;
+ 
+}
+.dropdown-item:hover{
+  font-weight: bold;
+  background: #7E80E3;
+ 
 }

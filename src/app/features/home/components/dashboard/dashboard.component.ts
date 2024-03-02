@@ -5,16 +5,18 @@ import { SharedService } from 'src/app/shared/services/shared.service';
 import { environment } from 'src/environments/environment';
 import {FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
+
 })
 export class DashboardComponent implements OnInit {
   lstApplicationArr: any = [];
   selectedFilterArr: any = [];
   totalRecords: number = 0;
-  sortParamKey: string = "desc";
+  sortParamKey: string = "asc";
   totalitems: any;
   itemsPerPage = 10;
   page = 1;
@@ -36,6 +38,8 @@ export class DashboardComponent implements OnInit {
   tooltipText: any;
   ratingcount=0;
   ApplicationId: any;
+  downloadCount:any=5;
+  isOpen = false;
 
   Finalrating:any;
   
@@ -273,11 +277,16 @@ export class DashboardComponent implements OnInit {
   }
 
   goToAppWeb(event:any){
-    this.ApplicationId = event.applicationGUID
-    this._fetchAppDetailsForDownloadCount();
     console.log(event);
     let url = event.appURL;           
     window.open(url,'_blank')?.focus();
+    this.ApplicationId = event.applicationGUID;
+    this.downloadCount = event.downloadCount;
+    this._fetchAppDetailsForDownloadCount();
+    setTimeout(() => {
+      this._fetchDataAndPopulatePagination(this.globalPageNumber, this.pageSize);
+    }, 1000);
+
   
   }
   
@@ -307,6 +316,7 @@ private _setPaginationConfig(): object {
   let sortQueryParams = {};
   sortQueryParams = {
     applicationGUID: this.ApplicationId,
+    downloadCount: this.downloadCount
   }
  //final query params
   return {
@@ -317,8 +327,9 @@ private _setPaginationConfig(): object {
 
 
 _fetchAppDetailsForDownloadCount() {
+  debugger
   let appQueryParams = this._setPaginationConfig();
-  this._homeService.getApplicationByIdApi(appQueryParams).subscribe(
+  this._homeService.getDownloadCountByAppGuIdApi(appQueryParams).subscribe(
     (res: any) => {
       },
     (err) => {

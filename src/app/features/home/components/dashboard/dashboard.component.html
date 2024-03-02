@@ -112,7 +112,27 @@
 
         <div class="row pt-3" *ngIf="lstApplicationArr.length > 0">
           <div class="col-sm-4">
-            <div class="search-box"></div>
+            <div class="showData dropdown">
+              <h4 class="m-0">
+                <a class="" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span class="group-by" style="font-size: 15px;">{{ this.pageSize }} per page</span>
+                  <img src="../../../../../assets/images/arrow-down-blue.svg" alt="" width="15px" class="pl-2" />
+                </a>
+
+                <div class="dropdown-menu p-0" style="    position: absolute;
+                transform: translate3d(747px, -126px, 0px);
+                top: 0px;
+                left: 0px;
+                will-change: transform;
+            ">
+                  <a (click)="fnPaging(list.name)" class="dropdown-item groupdpdn-item" *ngFor="
+                                      let list of groupByPerpage;
+                                    ">
+                    {{ list.name }}
+                  </a>
+                </div>
+              </h4>
+            </div>
           </div>
           <div class="col-md-8">
             <div class="datatable_rgt">
@@ -136,7 +156,7 @@
                   <img src="../../../../../assets/images/arrow-right-blue.svg" alt="" />
                 </a>
               </div>
-
+<!-- 
               <div class="showData dropdown">
                     <h4 class="m-0">
                       <a class="" data-bs-toggle="dropdown" aria-expanded="false">
@@ -157,7 +177,7 @@
                         </a>
                       </div>
                     </h4>
-                  </div>
+                  </div> -->
             </div>
           </div>
         </div>
@@ -212,9 +232,9 @@
           <div class="col-md-6 col-6">
             <h6>{{application.downloadCount}} Downloads</h6>
           </div>
-          <div class="col-md-6 col-6">
+          <!-- <div class="col-md-6 col-6">
             <h6>{{application.application_Rating}} Reviews</h6>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-12">
           <p class="card-text">

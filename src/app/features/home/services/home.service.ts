@@ -33,4 +33,8 @@ export class HomeService {
     return this._apiHttpService
       .get(this._apiEndpointsService.getApplicationByIdQueryParamsEndpoint(queryParamsObj));
   }
+  getDownloadCountByAppGuIdApi(queryParamsObj: Object) {
+    return this._apiHttpService
+      .get(this._apiEndpointsService.getDownloadCountByAppGuIdQueryParamsEndpoint(queryParamsObj));
+  }
 }

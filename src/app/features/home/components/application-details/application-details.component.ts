@@ -21,6 +21,7 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
   name = 'Angular';
   isLoading: boolean = true;
   apiUrl: any;
+  downloadCount:any;
 
 
   options = { fullWidth: false };
@@ -91,6 +92,7 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
 
         if (res !== undefined) {
 
+
           this.ApplicationArr = res[0];
           let imagePathArray = res[0].imagePath.split(",");
 
@@ -131,11 +133,16 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
   }
 
 
-  goToAppWeb(event: any) {
-    this._fetchAppDetailsForDownloadCount();
-    console.log(event);
+  async goToAppWeb(event: any) {
     let url = event.appURL;
     window.open(url, '_blank')?.focus();
+    this.downloadCount = this.ApplicationArr.downloadCount
+   
+    this._fetchAppDetailsForDownloadCount();
+    setTimeout(() => {
+      this._fetchDataAndPopulate();
+    }, 1000);
+
 
   }
 
@@ -146,6 +153,7 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
     let sortQueryParams = {};
     sortQueryParams = {
       applicationGUID: this.ApplicationId,
+      downloadCount: this.downloadCount
     }
    //final query params
     return {
@@ -157,7 +165,7 @@ export class ApplicationDetailsComponent implements OnInit, AfterViewInit {
   
   _fetchAppDetailsForDownloadCount() {
     let appQueryParams = this._setPaginationConfig();
-    this._homeService.getApplicationByIdApi(appQueryParams).subscribe(
+    this._homeService.getDownloadCountByAppGuIdApi(appQueryParams).subscribe(
       (res: any) => {
         },
       (err) => {
