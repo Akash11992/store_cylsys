@@ -35,7 +35,7 @@
     align-items: center;
     justify-content: center;
     list-style: none;
-    margin: -44px 0 0 -25px;
+    margin: -44px 0 0 0px;
   }
   .rateCount{
     text-align: center;
@@ -205,4 +205,9 @@
 .pvb-table{
   border-bottom: none !important;
   border-bottom-color: #fff !important;
+}
+ngb-rating{
+  color: #ffc107;
+  font-size: 45px;
+ 
 }

@@ -103,4 +103,13 @@ export class ApiEndpointsService {
         }
       } );
   }
+  public getDownloadCountByAppGuIdQueryParamsEndpoint(queryParamsObj:any):string{
+    return this.createUrlWithQueryParameters(this._constants.API_ENDPOINT_ALL_APPLICATION+'/IncreaseDownloadCount',
+    (qs: QueryStringParameters) => {
+      for (let queryParamKey in queryParamsObj) {
+        qs.push(queryParamKey, queryParamsObj[queryParamKey]);
+      }
+    }
+    );
+  }
 }

@@ -24,32 +24,18 @@
                         </h1>
 
                     </div>
-                    <!-- <div class="titleTxt mt-5" >
+                    <div class="titleTxt mt-5" >
                         <h4> ||
                             <span class="fontDown">
-                                6729 Downloads
+                              {{ApplicationArr.downloadCount}}  Downloads
                             </span> || <button class="btnRate">Rate us</button>
 
-                            <ul class="starsRate">
-                                <li>
-                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
-                                </li>
-                                <li>
-                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
-                                </li>
-                                <li>
-                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
-                                </li>
-                                <li>
-                                    <img src="assets/images/Star_yellow.svg" width="25px" alt="" />
-                                </li>
-                                <li>
-                                    <img src="assets/images/Star_white.svg" width="25px" alt="" />
-                                </li>
-                            </ul>
+                            <div class="starsRate">
+                              <ngb-rating  class="" [max]="5" [rate]="ApplicationArr.application_Rating" [readonly]="true"></ngb-rating>
+                            </div>
 
                         </h4>
-                    </div> -->
+                    </div>
                     <!-- <div class="titleTxt mt-5">
                         <h4>
                             <span class="rateCount">
