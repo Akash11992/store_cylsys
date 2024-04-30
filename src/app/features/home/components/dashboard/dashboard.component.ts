@@ -171,7 +171,7 @@ export class DashboardComponent implements OnInit {
         if (res !== undefined) {
 
           this.lstApplicationArr = [];
-          this.lstApplicationArr = res['aaData'];
+          this.lstApplicationArr = res['aaData'].filter((x:any)=> x.isActive == true);
           this.totalcount = res['iTotalRecords'];
 
 

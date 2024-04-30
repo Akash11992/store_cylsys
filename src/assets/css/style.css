@@ -44,7 +44,7 @@ body {
   background-image: url(../images/banner.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 50vh;
+  height: 40vh;
   color: var(--color-white);
 }
 #banner h1 {

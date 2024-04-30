@@ -225,14 +225,14 @@ color: #4e4e4e;
  white-space: pre-wrap;
           
 }
-.card-text{
+/* .card-text{
   display: block;
   text-overflow: ellipsis;
   width: 45ch;
   max-height: 100%;
   overflow: hidden;
   white-space: pre-line;
-}
+} */
 @media (max-width: 1367px) {
   .appName{
  
@@ -243,11 +243,11 @@ color: #4e4e4e;
     line-height: 15px !important;
              
    }
-   .card-text{
+   /* .card-text{
 
     width: 36ch;
 
-  }
+  } */
 }
 .pvb-table{
   border-bottom: none !important;
