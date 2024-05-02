@@ -10,6 +10,24 @@
      width: 18ch !important;
             
    }
+   #banner h1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  #banner p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  #banner img {
+    width: 55%;
+  }
+  #banner a img {
+    width: 10%;
+  }
    /* .card_section .card .card-body p {
           width: 38ch;
       } */
@@ -37,7 +55,7 @@
     line-height: 25px;
   }
   #banner img {
-    width: 60%;
+    width: 55%;
   }
   #banner a img {
     width: 10%;

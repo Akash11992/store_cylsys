@@ -44,14 +44,18 @@ body {
   background-image: url(../images/banner.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 40vh;
+  height: 45vh;
   color: var(--color-white);
 }
 #banner h1 {
-  font-size: 39px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0em;
+  /* font-size: 39px;
   font-weight: 700;
   line-height: 58px;
-  letter-spacing: 0em;
+  letter-spacing: 0em; */
   text-align: left;
 }
 
@@ -59,9 +63,12 @@ body {
   color: var(--color-yellow);
 }
 #banner p {
-  font-size: 21px;
+  font-size: 14px;
+    font-weight: 400;
+    line-height: 25px;
+  /* font-size: 21px;
   font-weight: 400;
-  line-height: 31px;
+   line-height: 31px; */
   letter-spacing: 0em;
   text-align: left;
   color: var(--color-lightwhite);
@@ -81,7 +88,12 @@ body {
   height: 10px;
   border-radius: 100%;
 }
-
+#banner img {
+  width: 55%;
+}
+#banner a img {
+  width: 10%;
+}
 #banner .carousel-indicators .active {
   background-color: var(--color-black);
 }
