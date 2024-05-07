@@ -1,6 +1,6 @@
 <div class="col-12" *ngIf="comingAppById && !isLoading">
   <div class="tabhide p-0">
-    <div class="vertical-breadcrumb">
+    <!-- <div class="vertical-breadcrumb">
       <div class="col-md-6 breadcrumb-virtical hideshow1">
         <a [routerLink]="['/notification']
           " class="left_arrow" style="padding-top: 25px"><img src="../../../../../assets/images/arrow-left-black.svg" alt="" /></a>
@@ -9,11 +9,15 @@
         </h2>
         
       </div>
-    </div>
+    </div> -->
+
   </div>
     <div class="row mt-5">
         <ng-container id="txtBox">
             <div class="col-md-8">
+              <a [routerLink]="['/notification']
+              " class="left_arrow" style="padding: 2%; margin: 2%;z-index: 9999;"><img src="../../../../../assets/images/arrow-left-black.svg" alt="" /></a>
+          
                 <div class="container-fluid txtBox">
                     <div *ngIf="ApplicationArr.applicationName!==undefined && ApplicationArr.applicationName!==null">
                         <h1 class="titleTxt">
